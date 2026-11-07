@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: proveedor-service
+  profiles:
+    # Perfil por defecto: dev. Se cambia con la variable PROFILE_ACTIVE
+    active: ${PROFILE_ACTIVE:dev}

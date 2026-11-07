@@ -1,0 +1,925 @@
+{
+  "info": {
+    "name": "Lab 13 - Proveedores y compras",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "proveedor",
+      "value": "http://localhost:8081"
+    },
+    {
+      "key": "producto",
+      "value": "http://localhost:8082"
+    },
+    {
+      "key": "compra",
+      "value": "http://localhost:8083"
+    }
+  ],
+  "item": [
+    {
+      "name": "1 Proveedores",
+      "item": [
+        {
+          "name": "01 Registrar proveedor 1",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{proveedor}}/api/proveedores",
+              "host": [
+                "{{proveedor}}"
+              ],
+              "path": [
+                "api",
+                "proveedores"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ruc\": \"20512345678\",\n  \"razonSocial\": \"Distribuidora Andina SAC\",\n  \"direccion\": \"Av. Industrial 123, Lima\",\n  \"telefono\": \"987654321\",\n  \"correo\": \"ventas@andina.pe\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "02 Registrar proveedor 2",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{proveedor}}/api/proveedores",
+              "host": [
+                "{{proveedor}}"
+              ],
+              "path": [
+                "api",
+                "proveedores"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ruc\": \"20601234567\",\n  \"razonSocial\": \"Suministros del Sur EIRL\",\n  \"direccion\": \"Jr. Arequipa 450, Lima\",\n  \"telefono\": \"912345678\",\n  \"correo\": \"contacto@sursum.pe\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "03 Listar proveedores",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{proveedor}}/api/proveedores",
+              "host": [
+                "{{proveedor}}"
+              ],
+              "path": [
+                "api",
+                "proveedores"
+              ]
+            }
+          }
+        },
+        {
+          "name": "04 Buscar proveedor por id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{proveedor}}/api/proveedores/1",
+              "host": [
+                "{{proveedor}}"
+              ],
+              "path": [
+                "api",
+                "proveedores",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "05 Actualizar proveedor",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{proveedor}}/api/proveedores/1",
+              "host": [
+                "{{proveedor}}"
+              ],
+              "path": [
+                "api",
+                "proveedores",
+                "1"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ruc\": \"20512345678\",\n  \"razonSocial\": \"Distribuidora Andina SAC\",\n  \"direccion\": \"Av. Industrial 500, Lima\",\n  \"telefono\": \"987654321\",\n  \"correo\": \"ventas@andina.pe\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "06 ERROR datos invalidos (400)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{proveedor}}/api/proveedores",
+              "host": [
+                "{{proveedor}}"
+              ],
+              "path": [
+                "api",
+                "proveedores"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ruc\": \"123\",\n  \"razonSocial\": \"\",\n  \"correo\": \"malcorreo\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "07 ERROR RUC repetido (400)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{proveedor}}/api/proveedores",
+              "host": [
+                "{{proveedor}}"
+              ],
+              "path": [
+                "api",
+                "proveedores"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ruc\": \"20512345678\",\n  \"razonSocial\": \"Otra Empresa SAC\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "08 ERROR proveedor inexistente (404)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{proveedor}}/api/proveedores/999",
+              "host": [
+                "{{proveedor}}"
+              ],
+              "path": [
+                "api",
+                "proveedores",
+                "999"
+              ]
+            }
+          }
+        },
+        {
+          "name": "09 Registrar proveedor temporal",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{proveedor}}/api/proveedores",
+              "host": [
+                "{{proveedor}}"
+              ],
+              "path": [
+                "api",
+                "proveedores"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ruc\": \"10456789012\",\n  \"razonSocial\": \"Proveedor Temporal\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "10 Eliminar proveedor temporal",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{proveedor}}/api/proveedores/3",
+              "host": [
+                "{{proveedor}}"
+              ],
+              "path": [
+                "api",
+                "proveedores",
+                "3"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2 Productos",
+      "item": [
+        {
+          "name": "11 Registrar producto 1",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{producto}}/api/productos",
+              "host": [
+                "{{producto}}"
+              ],
+              "path": [
+                "api",
+                "productos"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Laptop Lenovo 14\",\n  \"descripcion\": \"Core i5, 16 GB\",\n  \"precio\": 2500.0,\n  \"stock\": 5,\n  \"idProveedor\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "12 Registrar producto 2",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{producto}}/api/productos",
+              "host": [
+                "{{producto}}"
+              ],
+              "path": [
+                "api",
+                "productos"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Mouse inalambrico\",\n  \"descripcion\": \"USB\",\n  \"precio\": 45.5,\n  \"stock\": 20,\n  \"idProveedor\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "13 Registrar producto de otro proveedor",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{producto}}/api/productos",
+              "host": [
+                "{{producto}}"
+              ],
+              "path": [
+                "api",
+                "productos"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Papel bond A4\",\n  \"descripcion\": \"Paquete\",\n  \"precio\": 18.9,\n  \"stock\": 100,\n  \"idProveedor\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "14 Listar productos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{producto}}/api/productos",
+              "host": [
+                "{{producto}}"
+              ],
+              "path": [
+                "api",
+                "productos"
+              ]
+            }
+          }
+        },
+        {
+          "name": "15 Buscar producto por id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{producto}}/api/productos/1",
+              "host": [
+                "{{producto}}"
+              ],
+              "path": [
+                "api",
+                "productos",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "16 Actualizar producto",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{producto}}/api/productos/1",
+              "host": [
+                "{{producto}}"
+              ],
+              "path": [
+                "api",
+                "productos",
+                "1"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Laptop Lenovo 14\",\n  \"descripcion\": \"Core i7, 16 GB\",\n  \"precio\": 2500.0,\n  \"stock\": 5,\n  \"idProveedor\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "17 ERROR datos invalidos (400)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{producto}}/api/productos",
+              "host": [
+                "{{producto}}"
+              ],
+              "path": [
+                "api",
+                "productos"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"\",\n  \"precio\": -5,\n  \"stock\": -1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "18 ERROR proveedor inexistente (404)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{producto}}/api/productos",
+              "host": [
+                "{{producto}}"
+              ],
+              "path": [
+                "api",
+                "productos"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Teclado\",\n  \"precio\": 80,\n  \"stock\": 1,\n  \"idProveedor\": 999\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "19 ERROR producto inexistente (404)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{producto}}/api/productos/999",
+              "host": [
+                "{{producto}}"
+              ],
+              "path": [
+                "api",
+                "productos",
+                "999"
+              ]
+            }
+          }
+        },
+        {
+          "name": "20 Registrar producto temporal",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{producto}}/api/productos",
+              "host": [
+                "{{producto}}"
+              ],
+              "path": [
+                "api",
+                "productos"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Producto Temporal\",\n  \"precio\": 10,\n  \"stock\": 1,\n  \"idProveedor\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "21 Eliminar producto temporal",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{producto}}/api/productos/4",
+              "host": [
+                "{{producto}}"
+              ],
+              "path": [
+                "api",
+                "productos",
+                "4"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3 Compras",
+      "item": [
+        {
+          "name": "22 PRUEBA DE ACEPTACION compra con 2 productos",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{compra}}/api/compras",
+              "host": [
+                "{{compra}}"
+              ],
+              "path": [
+                "api",
+                "compras"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idProveedor\": 1,\n  \"fecha\": \"2026-11-06\",\n  \"detalles\": [\n    {\n      \"idProducto\": 1,\n      \"cantidad\": 2,\n      \"precio\": 2500.0\n    },\n    {\n      \"idProducto\": 2,\n      \"cantidad\": 3,\n      \"precio\": 45.5\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "23 Listar compras",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{compra}}/api/compras",
+              "host": [
+                "{{compra}}"
+              ],
+              "path": [
+                "api",
+                "compras"
+              ]
+            }
+          }
+        },
+        {
+          "name": "24 Buscar compra por id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{compra}}/api/compras/1",
+              "host": [
+                "{{compra}}"
+              ],
+              "path": [
+                "api",
+                "compras",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "25 ERROR cantidad 0 (400)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{compra}}/api/compras",
+              "host": [
+                "{{compra}}"
+              ],
+              "path": [
+                "api",
+                "compras"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idProveedor\": 1,\n  \"fecha\": \"2026-11-06\",\n  \"detalles\": [\n    {\n      \"idProducto\": 1,\n      \"cantidad\": 0,\n      \"precio\": 10\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "26 ERROR compra sin detalles (400)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{compra}}/api/compras",
+              "host": [
+                "{{compra}}"
+              ],
+              "path": [
+                "api",
+                "compras"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idProveedor\": 1,\n  \"fecha\": \"2026-11-06\",\n  \"detalles\": []\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "27 ERROR producto de otro proveedor (400)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{compra}}/api/compras",
+              "host": [
+                "{{compra}}"
+              ],
+              "path": [
+                "api",
+                "compras"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idProveedor\": 1,\n  \"fecha\": \"2026-11-06\",\n  \"detalles\": [\n    {\n      \"idProducto\": 3,\n      \"cantidad\": 1,\n      \"precio\": 18.9\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "28 ERROR proveedor inexistente (404)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{compra}}/api/compras",
+              "host": [
+                "{{compra}}"
+              ],
+              "path": [
+                "api",
+                "compras"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idProveedor\": 999,\n  \"fecha\": \"2026-11-06\",\n  \"detalles\": [\n    {\n      \"idProducto\": 1,\n      \"cantidad\": 1,\n      \"precio\": 10\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "29 ERROR producto inexistente (404)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{compra}}/api/compras",
+              "host": [
+                "{{compra}}"
+              ],
+              "path": [
+                "api",
+                "compras"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idProveedor\": 1,\n  \"fecha\": \"2026-11-06\",\n  \"detalles\": [\n    {\n      \"idProducto\": 999,\n      \"cantidad\": 1,\n      \"precio\": 10\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "30 ERROR compra inexistente (404)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{compra}}/api/compras/999",
+              "host": [
+                "{{compra}}"
+              ],
+              "path": [
+                "api",
+                "compras",
+                "999"
+              ]
+            }
+          }
+        },
+        {
+          "name": "31 Registrar compra temporal",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{compra}}/api/compras",
+              "host": [
+                "{{compra}}"
+              ],
+              "path": [
+                "api",
+                "compras"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idProveedor\": 2,\n  \"fecha\": \"2026-11-06\",\n  \"detalles\": [\n    {\n      \"idProducto\": 3,\n      \"cantidad\": 2,\n      \"precio\": 18.9\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "32 Eliminar compra temporal",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{compra}}/api/compras/2",
+              "host": [
+                "{{compra}}"
+              ],
+              "path": [
+                "api",
+                "compras",
+                "2"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "4 Perfiles",
+      "item": [
+        {
+          "name": "33 Perfil de proveedor-service",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{proveedor}}/ambiente",
+              "host": [
+                "{{proveedor}}"
+              ],
+              "path": [
+                "ambiente"
+              ]
+            }
+          }
+        },
+        {
+          "name": "34 Perfil de producto-service",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{producto}}/ambiente",
+              "host": [
+                "{{producto}}"
+              ],
+              "path": [
+                "ambiente"
+              ]
+            }
+          }
+        },
+        {
+          "name": "35 Perfil de compra-service",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{compra}}/ambiente",
+              "host": [
+                "{{compra}}"
+              ],
+              "path": [
+                "ambiente"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
