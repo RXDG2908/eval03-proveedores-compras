@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Arquitectura</title>
+<style>html,body{margin:0;background:#fff}svg{display:block;font-family:Arial,Helvetica,sans-serif}
+.t{font-size:18px;font-weight:700;fill:#111827}.s{font-size:14px;fill:#374151}.c{text-anchor:middle}
+.box{fill:#fff;stroke-width:2}.e{font-size:13px;fill:#374151}.h{font-size:24px;font-weight:700;fill:#111827}</style></head><body>
+<svg width="1200" height="760" viewBox="0 0 1200 760" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1f2937"/></marker>
+<marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#6b7280"/></marker>
+<marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1d4ed8"/></marker>
+</defs>
+<text x="600" y="40" class="h c">Microservicios y bases de datos del sistema de proveedores y compras</text>
+
+<!-- Postman -->
+<rect x="470" y="65" width="260" height="60" rx="8" class="box" stroke="#6b7280"/>
+<text x="600" y="92" class="t c">Postman</text><text x="600" y="113" class="s c">Prueba las peticiones REST</text>
+
+<!-- Flechas Postman a servicios -->
+<path d="M520 125 L180 262" stroke="#1f2937" stroke-width="2" fill="none" marker-end="url(#a)"/>
+<path d="M600 125 L600 262" stroke="#1f2937" stroke-width="2" fill="none" marker-end="url(#a)"/>
+<path d="M680 125 L1020 262" stroke="#1f2937" stroke-width="2" fill="none" marker-end="url(#a)"/>
+<text x="285" y="182" class="e">HTTP :8081</text><text x="610" y="200" class="e">HTTP :8082</text><text x="840" y="182" class="e">HTTP :8083</text>
+
+<!-- Servicios -->
+<rect x="50" y="265" width="280" height="130" rx="8" class="box" stroke="#0f766e"/>
+<text x="190" y="297" class="t c">proveedor-service</text><text x="190" y="321" class="s c">Puerto 8081</text>
+<text x="190" y="345" class="s c">CRUD de proveedores</text><text x="190" y="367" class="s c">Valida RUC y correo</text>
+
+<rect x="460" y="265" width="280" height="130" rx="8" class="box" stroke="#0f766e"/>
+<text x="600" y="297" class="t c">producto-service</text><text x="600" y="321" class="s c">Puerto 8082</text>
+<text x="600" y="345" class="s c">CRUD de productos</text><text x="600" y="367" class="s c">Comprueba que el proveedor exista</text>
+
+<rect x="870" y="265" width="280" height="130" rx="8" class="box" stroke="#0f766e"/>
+<text x="1010" y="297" class="t c">compra-service</text><text x="1010" y="321" class="s c">Puerto 8083</text>
+<text x="1010" y="345" class="s c">Compras con sus detalles</text><text x="1010" y="367" class="s c">Calcula subtotales y total</text>
+
+<!-- Feign -->
+<path d="M460 315 L330 315" stroke="#1d4ed8" stroke-width="2.5" fill="none" marker-end="url(#b)"/>
+<text x="395" y="305" class="e c" fill="#1d4ed8">Feign</text>
+<path d="M870 315 L740 315" stroke="#1d4ed8" stroke-width="2.5" fill="none" marker-end="url(#b)"/>
+<text x="805" y="305" class="e c">Feign</text>
+<path d="M960 395 L960 428 L250 428 L250 397" stroke="#1d4ed8" stroke-width="2.5" fill="none" marker-end="url(#b)"/>
+<text x="810" y="420" class="e c">Feign: compra consulta al proveedor</text>
+
+<!-- Bases -->
+<g fill="#fff" stroke="#b45309" stroke-width="2">
+<path d="M90 470 v62 a100 16 0 0 0 200 0 v-62"/><ellipse cx="190" cy="470" rx="100" ry="16"/>
+<path d="M500 470 v62 a100 16 0 0 0 200 0 v-62"/><ellipse cx="600" cy="470" rx="100" ry="16"/>
+<path d="M910 470 v62 a100 16 0 0 0 200 0 v-62"/><ellipse cx="1010" cy="470" rx="100" ry="16"/>
+</g>
+<path d="M190 395 L190 450" stroke="#b45309" stroke-width="2" marker-end="url(#g)"/>
+<path d="M600 395 L600 450" stroke="#b45309" stroke-width="2" marker-end="url(#g)"/>
+<path d="M1010 395 L1010 450" stroke="#b45309" stroke-width="2" marker-end="url(#g)"/>
+<text x="190" y="512" class="t c" style="font-size:16px">bd_proveedor_dev</text><text x="190" y="535" class="s c">tabla proveedor</text>
+<text x="600" y="512" class="t c" style="font-size:16px">bd_producto_dev</text><text x="600" y="535" class="s c">tabla producto</text>
+<text x="1010" y="512" class="t c" style="font-size:16px">bd_compra_dev</text><text x="1010" y="535" class="s c">compra y detalle_compra</text>
+
+<!-- Eureka -->
+<rect x="350" y="620" width="500" height="70" rx="8" class="box" stroke="#7c3aed"/>
+<text x="600" y="648" class="t c">eureka-server (puerto 8761)</text>
+<text x="600" y="672" class="s c">Registro donde cada servicio anota su nombre y dirección</text>
+<path d="M60 395 L60 655 L350 655" stroke="#7c3aed" stroke-width="2" stroke-dasharray="7 5" fill="none"/>
+<path d="M480 395 L480 620" stroke="#7c3aed" stroke-width="2" stroke-dasharray="7 5" fill="none"/>
+<path d="M1140 395 L1140 655 L850 655" stroke="#7c3aed" stroke-width="2" stroke-dasharray="7 5" fill="none"/>
+<text x="75" y="640" class="e">se registran en Eureka</text>
+
+<!-- Leyenda -->
+<g transform="translate(350,715)">
+<line x1="0" y1="0" x2="40" y2="0" stroke="#1d4ed8" stroke-width="2.5"/><text x="48" y="5" class="e">Consulta entre servicios</text>
+<line x1="210" y1="0" x2="250" y2="0" stroke="#7c3aed" stroke-width="2" stroke-dasharray="7 5"/><text x="258" y="5" class="e">Registro en Eureka</text>
+<line x1="390" y1="0" x2="430" y2="0" stroke="#b45309" stroke-width="2"/><text x="438" y="5" class="e">Base propia</text>
+</g>
+</svg></body></html>

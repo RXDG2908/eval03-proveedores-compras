@@ -64,10 +64,21 @@ Antes de usar `prod` hay que ejecutar `script.sql`, porque ese perfil no crea ta
 | 404 | El proveedor, el producto o la compra no existe |
 | 503 | Otro microservicio está apagado |
 
+## Evidencias
+
+- `capturas/`: respuestas de Postman, Eureka y las tablas en phpMyAdmin
+- `diagramas/`: arquitectura, flujo de una compra y tablas
+- `informe/`: informe en Word y PDF
+
 ## Avance
 
 - [x] Eureka y los 3 microservicios, con perfiles dev, test y prod
-- [x] Script SQL y colección de Postman
-- [ ] Capturas de Postman
-- [ ] Diagramas
-- [ ] Informe con conclusiones
+- [x] Script SQL y colección de Postman (35 peticiones)
+- [x] Capturas de Postman, Eureka y bases de datos
+- [x] Diagramas
+- [x] Informe con 5 conclusiones y 1 dificultad
+
+## Pendiente
+
+- Entregar el PDF en Canvas (vence el 07/11/2026 a las 23:30)
+- Preparar la sustentación individual
