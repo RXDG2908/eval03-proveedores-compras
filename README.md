@@ -69,6 +69,7 @@ Antes de usar `prod` hay que ejecutar `script.sql`, porque ese perfil no crea ta
 - `capturas/`: respuestas de Postman, Eureka y las tablas en phpMyAdmin
 - `diagramas/`: arquitectura, flujo de una compra y tablas
 - `informe/`: informe en Word y PDF
+- `presentacion/`: presentación para la sustentación. Se abre `presentacion/index.html` en Chrome: → avanza, ← vuelve, F pantalla completa, N notas, T tiempo, número + Enter salta a una diapositiva
 
 ## Avance
 
@@ -77,8 +78,9 @@ Antes de usar `prod` hay que ejecutar `script.sql`, porque ese perfil no crea ta
 - [x] Capturas de Postman, Eureka y bases de datos
 - [x] Diagramas
 - [x] Informe con 5 conclusiones y 1 dificultad
+- [x] Informe entregado en Canvas
+- [x] Presentación para la sustentación
 
 ## Pendiente
 
-- Entregar el PDF en Canvas (vence el 07/11/2026 a las 23:30)
 - Preparar la sustentación individual
