@@ -189,9 +189,91 @@ p{font-size:24px;line-height:1.4}
 #reloj.tarde{background:var(--rojo)}
 #ayuda{position:fixed;left:18px;bottom:14px;z-index:45;font:500 12px/1 var(--mono);color:#888;letter-spacing:.08em;transition:opacity .6s}
 
+
+/* ---------- Lenguaje de movimiento ---------- */
+:root{--mov:cubic-bezier(.65,0,.35,1)}
+@keyframes marcha{to{stroke-dashoffset:-48}}
+@keyframes latido{0%{offset-distance:0%;opacity:0}10%{opacity:1}85%{offset-distance:100%;opacity:1}100%{offset-distance:100%;opacity:0}}
+@keyframes parpadeo{0%,100%{opacity:1}50%{opacity:.25}}
+
+/* ---------- Arranque: consola + registro ---------- */
+.boot .consola{position:absolute;left:96px;top:300px;width:1090px;height:640px;background:var(--ink);color:#d8d8d2;padding:30px 34px;font:400 17px/1.62 var(--mono);overflow:hidden}
+.boot .consola .bar{display:flex;gap:18px;font:500 13px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#8a8a84;border-bottom:1px solid #2a2a2a;padding-bottom:16px;margin-bottom:16px}
+.boot .consola .bar b{color:var(--paper)}
+.boot .lin{white-space:nowrap;overflow:hidden;min-height:27px}
+.boot .lin .s{display:inline-block;width:190px;color:#7f9cff}
+.boot .lin .ok{color:#fafaf8;font-weight:700}
+.boot .cursor{display:inline-block;width:11px;height:20px;background:var(--paper);vertical-align:-3px;animation:parpadeo 1s steps(1) infinite}
+.boot .registro{position:absolute;left:1230px;right:96px;top:300px;height:640px;border:1px solid var(--ink);display:flex;flex-direction:column}
+.boot .registro .cab{background:var(--ikb);color:var(--paper);padding:26px 30px}
+.boot .registro .cab h3{font-size:34px}
+.boot .registro .fila{flex:1;border-top:1px solid var(--ink);display:grid;grid-template-columns:28px 1fr auto;gap:18px;align-items:center;padding:0 30px}
+.boot .led{width:16px;height:16px;background:var(--gris2);transition:background .3s}
+.boot .fila.up .led{background:var(--ikb)}
+.boot .fila b{font:700 25px/1.2 var(--disp)}
+.boot .fila small{display:block;font:500 15px/1.3 var(--mono);opacity:.6}
+.boot .estado{font:700 22px/1 var(--mono);color:var(--gris2);transition:color .3s}
+.boot .fila.up .estado{color:var(--ikb)}
+
+/* ---------- Dos ambientes ---------- */
+.amb .cols{position:absolute;left:96px;right:96px;top:330px;bottom:150px;display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
+.amb .col h3{font-size:34px;border-bottom:2px solid var(--ink);padding-bottom:16px}
+.amb .par{position:relative;height:430px;margin-top:26px}
+.amb .inst{position:absolute;top:0;width:calc(50% - 10px);height:100%;border:1px solid var(--ink);background:var(--paper);padding:24px 22px;display:flex;flex-direction:column;transition:transform .8s var(--mov),opacity .5s var(--e)}
+.amb .inst.dev{left:0}
+.amb .inst.prod{right:0;background:var(--ikb);color:var(--paper);border-color:var(--ikb)}
+.amb .par:not(.on) .inst.dev{transform:translateX(calc(50% + 10px))}
+.amb .par:not(.on) .inst.prod{transform:translateX(calc(-50% - 10px));opacity:0}
+.amb .inst .env{font:900 54px/1 var(--disp);letter-spacing:-.03em}
+.amb .inst .jar{font:500 15px/1.3 var(--mono);opacity:.7;margin-top:8px}
+.amb .inst .port{font:700 46px/1 var(--mono);margin-top:auto}
+.amb .inst .bd{font:500 16px/1.35 var(--mono);margin-top:14px;padding-top:12px;border-top:1px solid currentColor}
+.amb .inst .ddl{font:500 14px/1.35 var(--mono);opacity:.75;margin-top:6px}
+.amb .inst .led{position:absolute;top:26px;right:22px;width:14px;height:14px;background:currentColor;opacity:0}
+.amb .on2 .inst .led{opacity:1;animation:parpadeo 1.6s var(--mov) infinite}
+.amb .inst .env-sub{opacity:0;transition:opacity .4s var(--e) .5s}
+.amb .par.on .inst .env-sub{opacity:1}
+.amb .par.f{opacity:1;transform:none}
+.amb .pie{position:absolute;left:96px;bottom:110px;font:500 16px/1 var(--mono);letter-spacing:.08em;opacity:.7}
+
+/* ---------- Caída ---------- */
+.caida .fuente{position:absolute;left:96px;right:96px;top:300px;height:64px;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:space-between;padding:0 28px;font:500 16px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.caida svg.trafico{position:absolute;left:96px;top:364px;width:1728px;height:96px}
+.caida .tr{fill:none;stroke:var(--ikb);stroke-width:3;stroke-dasharray:10 14;animation:marcha .7s linear infinite}
+.caida .tr.parado{stroke:var(--gris2);animation:none}
+.caida .nodos3{position:absolute;left:96px;right:96px;top:460px;display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
+.caida .nodo3{border:2px solid var(--ink);height:250px;padding:26px 28px;position:relative;transition:background .35s,color .35s,border-color .35s}
+.caida .nodo3 h3{font-size:34px}
+.caida .nodo3 .codigo{position:absolute;left:28px;bottom:22px;font:700 84px/1 var(--mono);letter-spacing:-.04em;color:var(--ikb)}
+.caida .nodo3 .que{position:absolute;right:28px;bottom:30px;font:500 16px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.1em;text-align:right}
+.caida .nodo3 .led{position:absolute;top:30px;right:28px;width:18px;height:18px;background:var(--ikb);animation:parpadeo 1.4s var(--mov) infinite}
+.caida .nodo3.medio .codigo{color:var(--rojo)}
+.caida .nodo3.medio .led{background:var(--rojo)}
+.caida .nodo3.caido{background:var(--rojo);border-color:var(--rojo);color:var(--paper);animation:falla .5s steps(2) 1}
+.caida .nodo3.caido .codigo{color:var(--paper)}
+.caida .nodo3.caido .led{background:var(--paper);animation:none;opacity:.4}
+@keyframes falla{0%{transform:translate(0)}20%{transform:translate(-10px,3px)}40%{transform:translate(8px,-4px)}60%{transform:translate(-6px,2px)}80%{transform:translate(4px,0)}100%{transform:translate(0)}}
+.caida .base3{margin-top:18px;background:var(--ink);color:var(--paper);height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font:500 18px/1 var(--mono)}
+.caida .base3 i{font-style:normal;font-size:14px;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+.caida .leyenda{position:absolute;left:96px;right:96px;bottom:130px;display:grid;grid-template-columns:200px 1fr;align-items:baseline;border-top:1px solid var(--ink);padding-top:22px}
+.caida .leyenda .paso{font:700 22px/1 var(--mono);color:var(--ikb)}
+.caida .leyenda p{font:800 34px/1.15 var(--disp);letter-spacing:-.015em}
+.caida .mudo{position:absolute;width:0;height:0;overflow:hidden}
+
+/* ---------- Arquitectura: flujo continuo ---------- */
+.arq .vivo{opacity:0;transition:opacity .6s var(--e) 1.2s}
+.arq .on .vivo{opacity:1}
+.arq .vivo .m{fill:none;stroke:#fafaf8;stroke-width:2;stroke-dasharray:8 16;animation:marcha .9s linear infinite}
+.arq .vivo .lat{fill:#002FA7;animation:latido 2.2s var(--mov) infinite}
+
+/* ---------- Flujo: paquete con la petición ---------- */
+.flujo .resp{position:absolute;left:96px;right:96px;top:740px;height:190px;background:var(--ink);color:#d8d8d2;padding:28px 34px;font:400 22px/1.6 var(--mono)}
+.flujo .resp .k{color:#7f9cff;display:inline-block;width:150px}
+.flujo .resp b{color:var(--paper)}
+.flujo .marca{width:auto;min-width:44px;height:44px;padding:0 16px;display:flex;align-items:center;color:var(--paper);font:700 17px/1 var(--mono);white-space:nowrap;letter-spacing:.02em}
 @media (prefers-reduced-motion: reduce){
   .f,.f.corte,.trazo,.barra,.b,.marca,.foto .marco img{transition:none!important}
-  #cortina.pasa,.slide.entra .ent,.arq .on .paquete{animation:none!important}
+  #cortina.pasa,.slide.entra .ent,.arq .on .paquete,.tr,.vivo .m,.vivo .lat,.nodo3,.led,.cursor{animation:none!important}
 }
 </style>
 </head>
@@ -211,9 +293,30 @@ p{font-size:24px;line-height:1.4}
   </aside>
 </section>
 
+
+<!-- Arranque (consola + registro) -->
+<section class="slide boot" data-tema="Arranque" data-gancho="boot">
+  <div class="etq ent" style="margin-top:84px">№ 02 · Arranque</div>
+  <h2 class="ent" style="font-size:80px;margin-top:18px">Cuatro procesos. Un registro.</h2>
+  <div class="consola">
+    <div class="bar"><b>consola</b><span>perfil dev</span><span>java 25 · spring boot 4.1.2</span></div>
+    <div class="lineas"></div>
+  </div>
+  <div class="registro">
+    <div class="cab"><div class="etq" style="color:#fafaf8;opacity:.75">eureka-server :8761</div><h3 style="margin-top:10px">Instancias registradas</h3></div>
+    <div class="fila" data-s="PROVEEDOR-SERVICE"><span class="led"></span><div><b>proveedor-service</b><small>:8081</small></div><span class="estado">—</span></div>
+    <div class="fila" data-s="PRODUCTO-SERVICE"><span class="led"></span><div><b>producto-service</b><small>:8082</small></div><span class="estado">—</span></div>
+    <div class="fila" data-s="COMPRA-SERVICE"><span class="led"></span><div><b>compra-service</b><small>:8083</small></div><span class="estado">—</span></div>
+  </div>
+  <aside class="notes">
+    <p>Antes de nada, así <b>arranca</b> el sistema. Estas líneas son del log real.</p>
+    <p>Primero <b>Eureka</b> en el 8761. Luego cada servicio: carga su perfil <b>dev</b>, abre su conexión a MySQL, levanta Tomcat en su puerto…</p>
+    <p>…y se <b>registra en Eureka</b>. A la derecha se ve cómo el registro va quedando en <b>UP</b>.</p>
+  </aside>
+</section>
 <!-- 02 · Problema (S03 Statement) -->
 <section class="slide enunciado" data-tema="El problema">
-  <div class="etq ent" style="position:absolute;top:220px;left:96px">№ 02 · Situación</div>
+  <div class="etq ent" style="position:absolute;top:220px;left:96px">№ 03 · Situación</div>
   <h2 class="ent">Una empresa necesita <span class="az">controlar</span> proveedores, productos y compras.</h2>
   <div class="nota linea f"><p>Objetivo: crear Proveedor, Producto y Compra con detalles, cada uno como un servicio independiente con su propia base de datos.</p></div>
   <aside class="notes">
@@ -226,7 +329,7 @@ p{font-size:24px;line-height:1.4}
 <section class="slide" data-tema="Separación">
   <div class="tres">
     <div class="heroe ent">
-      <div class="etq">№ 03 · Diseño</div>
+      <div class="etq">№ 04 · Diseño</div>
       <h2>Tres servicios.<br>Tres bases.<br>Una tarea cada uno.</h2>
     </div>
     <div class="cards">
@@ -246,7 +349,7 @@ p{font-size:24px;line-height:1.4}
 
 <!-- 04 · Arquitectura (S17 System Diagram) -->
 <section class="slide arq" data-tema="Arquitectura">
-  <div class="etq ent" style="margin-top:84px">№ 04 · Arquitectura</div>
+  <div class="etq ent" style="margin-top:84px">№ 05 · Arquitectura</div>
   <h2 class="ent" style="font-size:72px;margin-top:18px">Se encuentran por nombre, no por dirección.</h2>
   <svg viewBox="0 0 1728 700">
     <defs>
@@ -288,6 +391,12 @@ p{font-size:24px;line-height:1.4}
       <text x="1189" y="100" font-size="22" font-family="JetBrains Mono" fill="#002FA7" text-anchor="middle">FEIGN</text>
       <text x="545" y="100" font-size="22" font-family="JetBrains Mono" fill="#002FA7" text-anchor="middle">FEIGN</text>
       <text x="865" y="-14" font-size="22" font-family="JetBrains Mono" fill="#002FA7" text-anchor="middle">FEIGN · COMPRA → PROVEEDOR</text>
+      <g class="vivo">
+        <path class="m" d="M1288 115 H1090"/><path class="m" d="M644 115 H446"/><path class="m" d="M1400 40 V0 H330 V34"/>
+        <rect class="lat" width="12" height="12" x="-6" y="-6" style="offset-path:path('M20 190 V560')"/>
+        <rect class="lat" width="12" height="12" x="-6" y="-6" style="offset-path:path('M664 190 V560');animation-delay:.7s"/>
+        <rect class="lat" width="12" height="12" x="-6" y="-6" style="offset-path:path('M1708 190 V560');animation-delay:1.4s"/>
+      </g>
     </g>
   </svg>
   <aside class="notes">
@@ -298,18 +407,56 @@ p{font-size:24px;line-height:1.4}
   </aside>
 </section>
 
+
+<!-- Dos ambientes por servicio -->
+<section class="slide amb" data-tema="Ambientes" data-gancho="amb">
+  <div class="etq ent" style="margin-top:84px">№ 06 · Perfiles</div>
+  <h2 class="ent" style="font-size:80px;margin-top:18px">Un mismo .jar, dos ambientes.</h2>
+  <div class="cols">
+    <div class="col">
+      <h3>proveedor-service</h3>
+      <div class="par f">
+        <div class="inst dev"><span class="led"></span><div class="env">DEV</div><div class="jar">proveedor-service.jar</div><div class="env-sub jar">PROFILE_ACTIVE=dev</div><div class="port">:8081</div><div class="bd">bd_proveedor_dev</div><div class="ddl">tablas · se crean solas</div></div>
+        <div class="inst prod"><span class="led"></span><div class="env">PROD</div><div class="jar">proveedor-service.jar</div><div class="env-sub jar">PROFILE_ACTIVE=prod</div><div class="port">:9081</div><div class="bd">bd_proveedor_prod</div><div class="ddl">tablas · solo se validan</div></div>
+      </div>
+    </div>
+    <div class="col">
+      <h3>producto-service</h3>
+      <div class="par f">
+        <div class="inst dev"><span class="led"></span><div class="env">DEV</div><div class="jar">producto-service.jar</div><div class="env-sub jar">PROFILE_ACTIVE=dev</div><div class="port">:8082</div><div class="bd">bd_producto_dev</div><div class="ddl">tablas · se crean solas</div></div>
+        <div class="inst prod"><span class="led"></span><div class="env">PROD</div><div class="jar">producto-service.jar</div><div class="env-sub jar">PROFILE_ACTIVE=prod</div><div class="port">:9082</div><div class="bd">bd_producto_prod</div><div class="ddl">tablas · solo se validan</div></div>
+      </div>
+    </div>
+    <div class="col">
+      <h3>compra-service</h3>
+      <div class="par f">
+        <div class="inst dev"><span class="led"></span><div class="env">DEV</div><div class="jar">compra-service.jar</div><div class="env-sub jar">PROFILE_ACTIVE=dev</div><div class="port">:8083</div><div class="bd">bd_compra_dev</div><div class="ddl">tablas · se crean solas</div></div>
+        <div class="inst prod"><span class="led"></span><div class="env">PROD</div><div class="jar">compra-service.jar</div><div class="env-sub jar">PROFILE_ACTIVE=prod</div><div class="port">:9083</div><div class="bd">bd_compra_prod</div><div class="ddl">tablas · solo se validan</div></div>
+      </div>
+    </div>
+  </div>
+  <span class="f mudo"></span>
+  <div class="pie">También existe el perfil test: puertos 818x · bases bd_*_test · se elige con la variable PROFILE_ACTIVE</div>
+  <aside class="notes">
+    <p>Cada servicio es <b>un solo .jar</b>.</p>
+    <p>→ Con la variable <b>PROFILE_ACTIVE</b> ese mismo jar se vuelve <b>DEV</b> o <b>PROD</b>: cambia el puerto, la base y cómo trata las tablas.</p>
+    <p>→ En dev las tablas se crean solas; en prod <b>solo se validan</b>, por eso antes se corre el script. Las dos instancias pueden correr a la vez porque no comparten nada.</p>
+    <p>También hay un perfil <b>test</b>, en los puertos 818x.</p>
+  </aside>
+</section>
 <!-- 05 · Flujo de una compra (S11 Horizontal Timeline) -->
 <section class="slide flujo" data-tema="Flujo" data-gancho="linea">
-  <div class="etq ent" style="margin-top:84px">№ 05 · Registrar una compra</div>
+  <div class="etq ent" style="margin-top:84px">№ 07 · Registrar una compra</div>
   <h2 class="ent" style="font-size:80px;margin-top:18px">Antes de guardar, se verifica todo.</h2>
   <div class="eje"></div>
-  <div class="marca"></div>
+  <div class="marca"><span></span></div>
+  <div class="resp"><span class="k">esperando</span>…</div>
   <div class="nodos">
-    <div class="nodo f"><div class="mono">PASO 1</div><h3>Llega el POST</h3><p>Proveedor, fecha y la lista de detalles.</p></div>
-    <div class="nodo f"><div class="mono">PASO 2</div><h3>¿Existe el proveedor?</h3><p>Se consulta a proveedor-service.</p></div>
-    <div class="nodo f"><div class="mono">PASO 3</div><h3>¿Y cada producto?</h3><p>Debe existir y ser de ese mismo proveedor.</p></div>
-    <div class="nodo f"><div class="mono">PASO 4</div><h3>Calcula</h3><p>Subtotal = cantidad × precio. Total = suma.</p></div>
-    <div class="nodo f"><div class="mono">PASO 5</div><h3>Guarda · 201</h3><p>La compra y sus detalles, juntos.</p></div>
+    <div class="nodo f" data-k="→ petición" data-res="POST /api/compras  {idProveedor: 1, fecha, detalles: [2 productos]}" data-txt="POST /api/compras"><div class="mono">PASO 1</div><h3>Llega el POST</h3><p>Proveedor, fecha y la lista de detalles.</p></div>
+    <div class="nodo f" data-k="← respuesta" data-res="GET /api/proveedores/1  →  <b>200</b>  Distribuidora Andina SAC" data-txt="GET /proveedores/1 → 200"><div class="mono">PASO 2</div><h3>¿Existe el proveedor?</h3><p>Se consulta a proveedor-service.</p></div>
+    <div class="nodo f" data-k="← respuesta" data-res="GET /api/productos/1 y /2  →  <b>200</b>  los dos son del proveedor 1" data-txt="GET /productos/1 → 200"><div class="mono">PASO 3</div><h3>¿Y cada producto?</h3><p>Debe existir y ser de ese mismo proveedor.</p></div>
+    <div class="nodo f" data-k="= cálculo" data-res="2 × 2500.00 = 5000.00  ·  3 × 45.50 = 136.50  ·  total <b>5136.50</b>" data-txt="2×2500 + 3×45.5"><div class="mono">PASO 4</div><h3>Calcula</h3><p>Subtotal = cantidad × precio. Total = suma.</p></div>
+    <div class="nodo f" data-k="← respuesta" data-res="<b>201 Created</b>  compra 1 guardada con sus 2 detalles en bd_compra" data-txt="201 Created"><div class="mono">PASO 5</div><h3>Guarda · 201</h3><p>La compra y sus detalles, juntos.</p></div>
   </div>
   <aside class="notes">
     <p>Así se registra una compra, paso a paso.</p>
@@ -321,7 +468,7 @@ p{font-size:24px;line-height:1.4}
 
 <!-- 06 · Prueba de aceptación (S06 KPI Tower) -->
 <section class="slide torre" data-tema="Prueba de aceptación" data-gancho="contar">
-  <div class="etq ent" style="margin-top:84px">№ 06 · Prueba de aceptación</div>
+  <div class="etq ent" style="margin-top:84px">№ 08 · Prueba de aceptación</div>
   <h2 class="ent" style="font-size:80px;margin-top:18px">Una compra, dos productos.</h2>
   <div class="barras">
     <div class="col f" style="grid-column:1/5;--h:389px"><div class="barra"></div><div class="cifra" data-fin="5000" data-dec="2">0</div><div class="det">Laptop Lenovo 14<br>2 × 2500.00</div></div>
@@ -338,9 +485,33 @@ p{font-size:24px;line-height:1.4}
   </aside>
 </section>
 
+
+<!-- Si uno se cae -->
+<section class="slide caida" data-tema="Si uno se cae" data-gancho="caida">
+  <div class="etq ent" style="margin-top:84px">№ 09 · Aislamiento</div>
+  <h2 class="ent" style="font-size:80px;margin-top:18px">¿Y si un servicio se cae?</h2>
+  <div class="fuente"><span>Postman · peticiones</span><span>Prueba real, perfil test</span></div>
+  <svg class="trafico" viewBox="0 0 1728 96" preserveAspectRatio="none">
+    <path class="tr t0" d="M272 0 V96"/><path class="tr t1" d="M864 0 V96"/><path class="tr t2" d="M1456 0 V96"/>
+  </svg>
+  <div class="nodos3">
+    <div><div class="nodo3 n0"><span class="led"></span><h3>proveedor-service</h3><div class="codigo">200</div><div class="que">ok</div></div><div class="base3">bd_proveedor <i>datos intactos</i></div></div>
+    <div><div class="nodo3 n1"><span class="led"></span><h3>producto-service</h3><div class="codigo">200</div><div class="que">ok</div></div><div class="base3">bd_producto <i>datos intactos</i></div></div>
+    <div><div class="nodo3 n2"><span class="led"></span><h3>compra-service</h3><div class="codigo">200</div><div class="que">ok</div></div><div class="base3">bd_compra <i>datos intactos</i></div></div>
+  </div>
+  <div class="leyenda"><div class="paso">01 / 05</div><p class="texto">Los tres arriba. Cada uno responde con su propia base.</p></div>
+  <span class="f mudo"></span><span class="f mudo"></span><span class="f mudo"></span><span class="f mudo"></span>
+  <aside class="notes">
+    <p>Esto lo <b>probé apagando cada servicio</b>. Son los códigos reales.</p>
+    <p>→ Si cae <b>compra</b>, proveedor y producto <b>siguen al 100%</b>.</p>
+    <p>→ Si cae <b>producto</b>, proveedor sigue; compra responde <b>503</b>: es un error <b>controlado</b>, no se cae.</p>
+    <p>→ Si cae <b>proveedor</b>, producto y compra responden 503, porque necesitan sus datos para completar la respuesta.</p>
+    <p>→ Y cuando vuelve, <b>todo responde 200 solo</b>, sin reiniciar nada. Ningún dato se pierde, porque <b>cada base es independiente</b>.</p>
+  </aside>
+</section>
 <!-- 07 · Validaciones (S04 Six Cells) -->
 <section class="slide" data-tema="Datos inválidos">
-  <div class="etq ent" style="margin-top:84px">№ 07 · Información inválida</div>
+  <div class="etq ent" style="margin-top:84px">№ 10 · Información inválida</div>
   <h2 class="ent" style="font-size:80px;margin-top:18px">Si el dato está mal, no entra.</h2>
   <div class="seis">
     <div class="f"><span class="cod">400</span><div><h3>RUC inválido</h3><p>11 dígitos, empieza con 10, 15, 17 o 20.</p></div></div>
@@ -359,26 +530,10 @@ p{font-size:24px;line-height:1.4}
   </aside>
 </section>
 
-<!-- 08 · Perfiles (S20 Stacked Ledger) -->
-<section class="slide" data-tema="Perfiles">
-  <div class="etq ent" style="margin-top:84px">№ 08 · Perfiles YAML</div>
-  <h2 class="ent" style="font-size:80px;margin-top:18px">El mismo código, tres ambientes.</h2>
-  <div class="libro">
-    <div class="fila cab"><div>Perfil</div><div>Puerto</div><div>Base de datos</div><div>Tablas</div><div>SQL</div></div>
-    <div class="fila f"><div class="perfil">dev</div><div class="m">8081 · 8082 · 8083</div><div class="m">bd_*_dev</div><div>Se crean solas</div><div>Sí</div></div>
-    <div class="fila f"><div class="perfil">test</div><div class="m">8181 · 8182 · 8183</div><div class="m">bd_*_test</div><div>Se crean solas</div><div>Sí</div></div>
-    <div class="fila prod f"><div class="perfil">prod</div><div class="m">9081 · 9082 · 9083</div><div class="m">DB_URL</div><div>Solo se verifican</div><div>No</div></div>
-  </div>
-  <aside class="notes">
-    <p>Los <b>perfiles</b>: el mismo código corre en tres ambientes, cambiando solo el YAML.</p>
-    <p>Se elige con la variable <b>PROFILE_ACTIVE</b>; si no se pone, es dev.</p>
-    <p>→ dev y → test crean sus tablas solas. → En <b>prod</b> la base y la clave vienen de variables de entorno, y las tablas <b>solo se validan</b>: por eso antes se corre el script.sql.</p>
-  </aside>
-</section>
 
 <!-- 09 · Postman (S07 H-Bar Chart) -->
 <section class="slide" data-tema="Pruebas">
-  <div class="etq ent" style="margin-top:84px">№ 09 · Postman</div>
+  <div class="etq ent" style="margin-top:84px">№ 11 · Postman</div>
   <h2 class="ent" style="font-size:80px;margin-top:18px">35 peticiones. 35 respuestas esperadas.</h2>
   <div class="hbar">
     <div class="r f" style="--w:100%"><div class="cod">200<small>OK · listar, buscar, editar</small></div><div class="b"></div><div class="n">14</div></div>
@@ -396,7 +551,7 @@ p{font-size:24px;line-height:1.4}
 <!-- 10 · Evidencia (S22 Image Hero) -->
 <section class="slide foto" data-tema="Evidencia">
   <div class="marco f"><img src="img/postman-compra.png" alt="Respuesta de Postman al registrar la compra"></div>
-  <div class="titulo ent"><div class="etq">№ 10 · Evidencia real</div><h2 style="font-size:76px;margin-top:14px">201 Created.<br>Total: 5136.5</h2></div>
+  <div class="titulo ent"><div class="etq">№ 12 · Evidencia real</div><h2 style="font-size:76px;margin-top:14px">201 Created.<br>Total: 5136.5</h2></div>
   <div class="kpis">
     <div></div>
     <div class="kpi f"><b>3</b><span>Servicios en Eureka</span></div>
@@ -413,7 +568,7 @@ p{font-size:24px;line-height:1.4}
 
 <!-- 11 · Dificultad (S12 Manifesto + Ink Banner) -->
 <section class="slide difi" data-tema="Dificultad">
-  <div class="etq ent" style="position:absolute;top:190px;left:96px">№ 11 · Dificultad</div>
+  <div class="etq ent" style="position:absolute;top:190px;left:96px">№ 13 · Dificultad</div>
   <h2 class="ent">Todo respondía 500.<br><span class="az">El código estaba bien.</span></h2>
   <p class="exp f">Ya existía una base con el mismo nombre, creada en una práctica anterior, y su tabla tenía otras columnas.</p>
   <div class="banda f">
@@ -429,7 +584,7 @@ p{font-size:24px;line-height:1.4}
 
 <!-- 12 · Conclusiones (S16 Multi-card Brief) -->
 <section class="slide" data-tema="Conclusiones">
-  <div class="etq ent" style="margin-top:84px">№ 12 · Conclusiones</div>
+  <div class="etq ent" style="margin-top:84px">№ 14 · Conclusiones</div>
   <h2 class="ent" style="font-size:80px;margin-top:18px">Cinco aprendizajes.</h2>
   <div class="micro">
     <div class="f"><div class="mono">01</div><p>Cada microservicio con una sola responsabilidad y su propia base: un cambio no obliga a tocar los demás.</p></div>
@@ -449,7 +604,7 @@ p{font-size:24px;line-height:1.4}
 <!-- 13 · Cierre (S09 Closing Manifesto) -->
 <section class="slide cierre" data-tema="Cierre">
   <div class="bloque">
-    <div class="etq">№ 13 · Fin</div>
+    <div class="etq">№ 15 · Fin</div>
     <div id="matriz2"></div>
     <h2 class="ent">Gracias.</h2>
     <p style="position:absolute;left:100px;bottom:150px;font-size:28px">¿Preguntas?</p>
@@ -547,15 +702,97 @@ p{font-size:24px;line-height:1.4}
     requestAnimationFrame(cuadro);
   }
 
+
+  // ---------- Escenas con movimiento propio ----------
+  var LOG = [
+    ['eureka', 'Tomcat started on port 8761 (http)'],
+    ['eureka', 'Started EurekaServerApplication in 5.47 seconds', 1],
+    ['proveedor', 'The following 1 profile is active: "dev"'],
+    ['proveedor', 'HikariPool-1 - Start completed.'],
+    ['proveedor', 'Tomcat started on port 8081 (http)'],
+    ['eureka', 'Registered instance PROVEEDOR-SERVICE:8081 with status UP', 2],
+    ['producto', 'The following 1 profile is active: "dev"'],
+    ['producto', 'Tomcat started on port 8082 (http)'],
+    ['eureka', 'Registered instance PRODUCTO-SERVICE:8082 with status UP', 2],
+    ['compra', 'The following 1 profile is active: "dev"'],
+    ['compra', 'Tomcat started on port 8083 (http)'],
+    ['eureka', 'Registered instance COMPRA-SERVICE:8083 with status UP', 2],
+    ['compra', 'Started CompraServiceApplication in 9.072 seconds', 1]
+  ];
+  var bootTimer = [];
+  function boot(s) {
+    bootTimer.forEach(clearTimeout); bootTimer = [];
+    var cont = s.querySelector('.lineas');
+    cont.innerHTML = '';
+    s.querySelectorAll('.registro .fila').forEach(function (f) { f.classList.remove('up'); f.querySelector('.estado').textContent = '—'; });
+    var t = 500;
+    LOG.forEach(function (l) {
+      bootTimer.push(setTimeout(function () {
+        var d = document.createElement('div');
+        d.className = 'lin';
+        d.innerHTML = '<span class="s">[' + l[0] + ']</span><span class="x"></span><span class="cursor"></span>';
+        cont.appendChild(d);
+        var x = d.querySelector('.x'), i = 0, txt = l[1];
+        (function escribe() {
+          i += 2;
+          x.textContent = txt.slice(0, i);
+          if (i < txt.length) { bootTimer.push(setTimeout(escribe, 12)); }
+          else {
+            d.querySelector('.cursor').remove();
+            if (l[2]) x.className = 'x ok';
+            if (l[2] === 2) {
+              var nombre = txt.split(' ')[2].split(':')[0];
+              var f = s.querySelector('.fila[data-s="' + nombre + '"]');
+              if (f) { f.classList.add('up'); f.querySelector('.estado').textContent = 'UP'; }
+            }
+          }
+        })();
+      }, t));
+      t += l[2] === 2 ? 620 : 360;
+    });
+  }
+
+  var CAIDA = [
+    {c: ['ok', 'ok', 'ok'], t: 'Los tres arriba. Cada uno responde con su propia base.'},
+    {c: ['ok', 'ok', 'caido'], t: 'Cae compra-service: proveedor y producto siguen al 100%.'},
+    {c: ['ok', 'caido', 'medio'], t: 'Cae producto-service: proveedor sigue; compra responde 503, un error controlado.'},
+    {c: ['caido', 'medio', 'medio'], t: 'Cae proveedor-service: producto y compra responden 503, porque necesitan sus datos.'},
+    {c: ['ok', 'ok', 'ok'], t: 'Vuelve el servicio: todo responde 200 solo, sin reiniciar nada. Ningún dato se perdió.'}
+  ];
+  function caida(s, n) {
+    var e = CAIDA[Math.min(n, CAIDA.length - 1)];
+    e.c.forEach(function (st, i) {
+      var nodo = s.querySelector('.n' + i), tr = s.querySelector('.t' + i);
+      nodo.classList.remove('ok', 'medio', 'caido');
+      void nodo.offsetWidth;
+      nodo.classList.add(st);
+      nodo.querySelector('.codigo').textContent = st === 'ok' ? '200' : st === 'medio' ? '503' : '—';
+      nodo.querySelector('.que').textContent = st === 'ok' ? 'ok' : st === 'medio' ? 'error controlado' : 'sin respuesta';
+      tr.classList.toggle('parado', st === 'caido');
+    });
+    s.querySelector('.leyenda .paso').textContent = '0' + (n + 1) + ' / 05';
+    s.querySelector('.leyenda .texto').textContent = e.t;
+  }
+
+  function ganchos(s, n) {
+    if (s.dataset.gancho === 'caida') caida(s, n);
+    if (s.dataset.gancho === 'amb') {
+      s.querySelectorAll('.par').forEach(function (p) { p.classList.toggle('on2', n >= 4); });
+    }
+    if (s.dataset.gancho === 'linea') {
+      var nodos = s.querySelectorAll('.nodo');
+      var m = s.querySelector('.marca');
+      var k = Math.max(0, n - 1);
+      m.style.transform = 'translateX(' + (k * (1920 - 192) / 5) + 'px)';
+      m.querySelector('span').textContent = n > 0 ? nodos[k].dataset.txt : '';
+      s.querySelector('.resp').innerHTML = n > 0 ? '<span class="k">' + nodos[k].dataset.k + '</span>' + nodos[k].dataset.res : '<span class="k">esperando</span>la compra…';
+    }
+  }
   function alMostrar(s, f) {
     f.classList.add('on');
     var c = f.querySelector('[data-fin]');
     if (c) contar(c);
-    if (s.dataset.gancho === 'linea') {
-      var n = frags(s).filter(function (x) { return x.classList.contains('on'); }).length;
-      var ancho = (1920 - 192) / 5;
-      s.querySelector('.marca').style.transform = 'translateX(' + ((n - 1) * ancho) + 'px)';
-    }
+    ganchos(s, frags(s).filter(function (x) { return x.classList.contains('on'); }).length);
   }
 
   function pintar(n, pasos, conCortina) {
@@ -572,10 +809,8 @@ p{font-size:24px;line-height:1.4}
         var c = f.querySelector('[data-fin]');
         if (c) c.textContent = i < pasos ? parseFloat(c.dataset.fin).toFixed(2) : '0';
       });
-      if (s.dataset.gancho === 'linea') {
-        var m = s.querySelector('.marca');
-        m.style.transform = 'translateX(' + (Math.max(0, pasos - 1) * (1920 - 192) / 5) + 'px)';
-      }
+      ganchos(s, pasos);
+      if (s.dataset.gancho === 'boot') boot(s);
       var nota = s.querySelector('.notes');
       panel.innerHTML = '<div class="t">Notas · ' + (n + 1) + ' de ' + total + ' · ' + s.dataset.tema + '</div>' + (nota ? nota.innerHTML : '');
       progreso.style.width = ((n + 1) / total * 100) + '%';
@@ -610,9 +845,7 @@ p{font-size:24px;line-height:1.4}
     if (paso > 0) {
       paso--;
       f[paso].classList.remove('on');
-      if (slides[idx].dataset.gancho === 'linea') {
-        slides[idx].querySelector('.marca').style.transform = 'translateX(' + (Math.max(0, paso - 1) * (1920 - 192) / 5) + 'px)';
-      }
+      ganchos(slides[idx], paso);
     } else if (idx > 0) {
       pintar(idx - 1, frags(slides[idx - 1]).length, true);
     }
