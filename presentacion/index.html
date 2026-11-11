@@ -271,6 +271,100 @@ p{font-size:24px;line-height:1.4}
 .flujo .resp .k{color:#7f9cff;display:inline-block;width:150px}
 .flujo .resp b{color:var(--paper)}
 .flujo .marca{width:auto;min-width:44px;height:44px;padding:0 16px;display:flex;align-items:center;color:var(--paper);font:700 17px/1 var(--mono);white-space:nowrap;letter-spacing:.02em}
+
+/* ---------- Base de datos ---------- */
+.bd .grupos{position:absolute;left:96px;right:96px;top:300px;display:grid;grid-template-columns:4fr 4fr 8fr;gap:56px}
+.bd .grh{font:500 16px/1 var(--mono);letter-spacing:.06em;color:var(--ikb);padding-bottom:12px;border-bottom:2px solid var(--ikb);margin-bottom:16px;display:flex;justify-content:space-between}
+.bd .grh i{font-style:normal;color:var(--ink);opacity:.55}
+.bd .par2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.bd .tb{border:1px solid var(--ink);background:var(--paper)}
+.bd .tbh{background:var(--ikb);color:var(--paper);display:flex;justify-content:space-between;align-items:baseline;padding:16px 18px}
+.bd .tb.osc .tbh{background:var(--ink)}
+.bd .tbh b{font:800 28px/1 var(--disp);letter-spacing:-.01em}
+.bd .tbh span{font:500 13px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+.bd .tbc,.bd .fl{display:grid;grid-template-columns:58px 1fr auto;align-items:center;gap:10px;padding:0 16px}
+.bd .tbc{font:500 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;opacity:.55;height:34px;border-bottom:1px solid var(--ink)}
+.bd .fl{height:50px;border-bottom:1px solid var(--gris2);opacity:0;transform:translateX(-14px);transition:opacity .4s var(--e),transform .5s var(--e)}
+.bd .fl:last-child{border-bottom:0}
+.bd .gr.on .fl{opacity:1;transform:none}
+.bd .gr.on .fl:nth-child(4){transition-delay:.06s}.bd .gr.on .fl:nth-child(5){transition-delay:.12s}.bd .gr.on .fl:nth-child(6){transition-delay:.18s}
+.bd .gr.on .fl:nth-child(7){transition-delay:.24s}.bd .gr.on .fl:nth-child(8){transition-delay:.3s}.bd .gr.on .fl:nth-child(9){transition-delay:.36s}
+.bd .cn{font:600 19px/1 var(--mono)}
+.bd .tp{font:400 15px/1 var(--mono);opacity:.7}
+.bd .tg{display:inline-block;font:700 12px/1 var(--mono);letter-spacing:.06em;padding:5px 6px;text-align:center;min-width:44px}
+.bd .tg.pk{background:var(--ikb);color:var(--paper)}
+.bd .tg.uq{border:1px solid var(--ink)}
+.bd .tg.fk{background:var(--ink);color:var(--paper)}
+.bd .tg.ref{border:1px dashed var(--ikb);color:var(--ikb)}
+.bd .tg.nada{color:var(--gris2)}
+.bd svg.rels{position:absolute;inset:0;width:1920px;height:1080px;pointer-events:none;overflow:visible}
+.bd .rel{fill:none;stroke:var(--ikb);stroke-width:2.5;stroke-dasharray:9 9;opacity:0;transition:opacity .5s}
+.bd .rel.real{stroke:var(--ink);stroke-dasharray:none;stroke-width:3}
+.bd .rel.on{opacity:1;animation:marcha 1.2s linear infinite}
+.bd .rel.real.on{animation:none}
+.bd .ley{position:absolute;left:96px;right:96px;bottom:120px;display:flex;gap:54px;font:500 16px/1 var(--mono);align-items:center}
+.bd .ley b{margin-right:10px}
+
+/* ---------- Arquitectura por capas ---------- */
+.arq2 .pm{position:absolute;left:96px;right:96px;top:292px;height:60px;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font:500 17px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.arq2 .ac{position:absolute;top:404px;width:520px;border:2px solid var(--ink);background:var(--paper)}
+.arq2 .ach{height:64px;background:var(--ikb);color:var(--paper);display:flex;justify-content:space-between;align-items:center;padding:0 20px}
+.arq2 .ach b{font:800 28px/1 var(--disp)}
+.arq2 .ach span{font:500 14px/1 var(--mono);opacity:.8}
+.arq2 .cp{height:46px;display:grid;grid-template-columns:150px 1fr;align-items:center;padding:0 20px;border-top:1px solid var(--gris2);font:400 16px/1 var(--mono);opacity:0;transform:translateY(8px);transition:opacity .35s var(--e),transform .45s var(--e)}
+.arq2 .cp b{font:700 15px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ikb)}
+.arq2 .cp.vacia{color:var(--gris2)}
+.arq2 .cp.vacia b{color:var(--gris2)}
+.arq2 .ac.on2 .cp{opacity:1;transform:none}
+.arq2 .ac.on2 .cp:nth-child(2){transition-delay:.06s}.arq2 .ac.on2 .cp:nth-child(3){transition-delay:.12s}.arq2 .ac.on2 .cp:nth-child(4){transition-delay:.18s}.arq2 .ac.on2 .cp:nth-child(5){transition-delay:.24s}.arq2 .ac.on2 .cp:nth-child(6){transition-delay:.3s}
+.arq2 .adb{position:absolute;top:786px;width:400px;height:64px;background:var(--ink);color:var(--paper);display:flex;justify-content:space-between;align-items:center;padding:0 20px}
+.arq2 .adb b{font:500 19px/1 var(--mono)}
+.arq2 .adb span{font:500 13px/1 var(--mono);opacity:.6}
+.arq2 .eu{position:absolute;left:96px;right:96px;top:884px;height:58px;border:2px solid var(--ikb);color:var(--ikb);display:flex;align-items:center;justify-content:space-between;padding:0 24px;font:800 24px/1 var(--disp)}
+.arq2 .eu span{font:500 15px/1 var(--mono);letter-spacing:.06em}
+.arq2 svg.lin{position:absolute;inset:0;width:1920px;height:1080px;pointer-events:none;overflow:visible}
+.arq2 .lin text{font:500 14px var(--mono);fill:var(--ink);opacity:.6}
+.arq2 .lin .fx{fill:var(--ikb);opacity:1;font-weight:700}
+.arq2 .tz{fill:none;stroke:var(--ink);stroke-width:2;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1s var(--e)}
+.arq2 .tz.az{stroke:var(--ikb);stroke-width:3}
+.arq2 g.f.on .tz{stroke-dashoffset:0}
+.arq2 .vivo2{opacity:0;transition:opacity .5s 1.1s}
+.arq2 g.f.on .vivo2{opacity:1}
+.arq2 .fluye{fill:none;stroke:var(--paper);stroke-width:2;stroke-dasharray:6 14;animation:marcha 1s linear infinite}
+.arq2 .pq{fill:var(--ikb);animation:latido 2.6s var(--mov) infinite}
+
+/* ---------- Flujo con desvíos ---------- */
+.flujo2 svg.fl2{position:absolute;inset:0;width:1920px;height:1080px;overflow:visible}
+.flujo2 .nd polygon,.flujo2 .nd rect{fill:var(--paper);stroke:var(--gris2);stroke-width:2;transition:stroke .3s,fill .3s}
+.flujo2 .nd text{font:800 21px var(--disp);text-anchor:middle;fill:var(--gris2);transition:fill .3s}
+.flujo2 .nd text.s{font:500 16px var(--mono)}
+.flujo2 .nd.lit polygon,.flujo2 .nd.lit rect{stroke:var(--ink)}
+.flujo2 .nd.lit text{fill:var(--ink)}
+.flujo2 .nd.pill.lit rect{fill:var(--ink)}
+.flujo2 .nd.pill.lit text{fill:var(--paper)}
+.flujo2 .nd.fin.lit rect{fill:var(--ikb);stroke:var(--ikb)}
+.flujo2 .nd.fin.lit text{fill:var(--paper)}
+.flujo2 .nd.activo polygon,.flujo2 .nd.activo rect{stroke:var(--ikb);stroke-width:4}
+.flujo2 .ed{fill:none;stroke:var(--gris2);stroke-width:2.5;color:var(--gris2);transition:stroke .3s,color .3s}
+.flujo2 .ed.lit{stroke:var(--ink);color:var(--ink)}
+.flujo2 .ed.err.lit{stroke:var(--rojo);color:var(--rojo);stroke-dasharray:8 7}
+.flujo2 .ed.loop.lit{stroke:var(--ikb);color:var(--ikb);stroke-dasharray:8 7}
+.flujo2 .lb{font:500 15px var(--mono);fill:var(--gris2);text-anchor:middle;transition:fill .3s}
+.flujo2 .lb.lit{fill:var(--ink)}
+.flujo2 .er rect{fill:var(--paper);stroke:var(--gris2);stroke-width:2;transition:all .3s}
+.flujo2 .er text{font:500 16px var(--mono);text-anchor:middle;fill:var(--gris2);transition:fill .3s}
+.flujo2 .er text.c{font:700 40px var(--mono)}
+.flujo2 .er.lit rect{stroke:var(--rojo)}
+.flujo2 .er.lit text{fill:var(--ink)}
+.flujo2 .er.lit text.c{fill:var(--rojo)}
+.flujo2 .er.flash rect{fill:var(--rojo);stroke:var(--rojo)}
+.flujo2 .er.flash text,.flujo2 .er.flash text.c{fill:var(--paper)}
+.flujo2 .tok,.flujo2 .tok2{position:absolute;left:0;top:0;width:26px;height:26px;margin:-13px 0 0 -13px;background:var(--ikb);opacity:0;z-index:5}
+.flujo2 .tok2{background:var(--rojo)}
+.flujo2 .estado2{position:absolute;left:96px;right:96px;bottom:120px;display:grid;grid-template-columns:220px 1fr;align-items:baseline;border-top:1px solid var(--ink);padding-top:18px}
+.flujo2 .estado2 .k{font:700 20px/1 var(--mono);color:var(--ikb);text-transform:uppercase;letter-spacing:.1em}
+.flujo2 .estado2 .v{font:800 30px/1.15 var(--disp)}
+
 @media (prefers-reduced-motion: reduce){
   .f,.f.corte,.trazo,.barra,.b,.marca,.foto .marco img{transition:none!important}
   #cortina.pasa,.slide.entra .ent,.arq .on .paquete,.tr,.vivo .m,.vivo .lat,.nodo3,.led,.cursor{animation:none!important}
@@ -314,23 +408,13 @@ p{font-size:24px;line-height:1.4}
     <p>…y se <b>registra en Eureka</b>. A la derecha se ve cómo el registro va quedando en <b>UP</b>.</p>
   </aside>
 </section>
-<!-- 02 · Problema (S03 Statement) -->
-<section class="slide enunciado" data-tema="El problema">
-  <div class="etq ent" style="position:absolute;top:220px;left:96px">№ 03 · Situación</div>
-  <h2 class="ent">Una empresa necesita <span class="az">controlar</span> proveedores, productos y compras.</h2>
-  <div class="nota linea f"><p>Objetivo: crear Proveedor, Producto y Compra con detalles, cada uno como un servicio independiente con su propia base de datos.</p></div>
-  <aside class="notes">
-    <p>El problema es simple: una empresa quiere <b>controlar</b> a quién le compra, qué productos tiene y qué compras hizo.</p>
-    <p>→ El objetivo: <b>tres servicios</b>, Proveedor, Producto y Compra, y la compra con sus <b>detalles</b>.</p>
-  </aside>
-</section>
 
 <!-- 03 · Tres servicios (S13 Three Forces Cards) -->
 <section class="slide" data-tema="Separación">
   <div class="tres">
     <div class="heroe ent">
-      <div class="etq">№ 04 · Diseño</div>
-      <h2>Tres servicios.<br>Tres bases.<br>Una tarea cada uno.</h2>
+      <div class="etq">№ 03 · Diseño</div>
+      <div><h2>Tres servicios.<br>Tres bases.<br>Una tarea cada uno.</h2><p style="margin-top:34px;font-size:22px;opacity:.75">Una empresa necesita controlar a sus proveedores, sus productos y las compras que les hace.</p></div>
     </div>
     <div class="cards">
       <div class="card f"><b>8081</b><div><h3>proveedor-service</h3><p>CRUD de proveedores. Valida el RUC y que no se repita.</p></div></div>
@@ -339,6 +423,7 @@ p{font-size:24px;line-height:1.4}
     </div>
   </div>
   <aside class="notes">
+    <p>El problema: una empresa necesita <b>controlar</b> proveedores, productos y compras.</p>
     <p>¿<b>Por qué tres servicios</b>? Porque son tres responsabilidades distintas.</p>
     <p>→ <b>Proveedor</b>: registra empresas y valida el RUC.</p>
     <p>→ <b>Producto</b>: cada producto pertenece a un proveedor, y lo verifica antes de guardar.</p>
@@ -347,63 +432,49 @@ p{font-size:24px;line-height:1.4}
   </aside>
 </section>
 
-<!-- 04 · Arquitectura (S17 System Diagram) -->
-<section class="slide arq" data-tema="Arquitectura">
+<!-- Base de datos -->
+<section class="slide bd" data-tema="Base de datos" data-gancho="bd">
+  <div class="etq ent" style="margin-top:84px">№ 04 · Base de datos</div>
+  <h2 class="ent" style="font-size:80px;margin-top:18px">Cada servicio, su base. Entre ellos, solo ids.</h2>
+  <div class="grupos">
+    <div class="gr f"><div class="grh">bd_proveedor_dev <i>proveedor-service</i></div><div class="tb" id="t-prov"><div class="tbh"><b>proveedor</b><span>tabla</span></div><div class="tbc"><span>clave</span><span>columna</span><span>tipo</span></div><div class="fl"><span class="tg pk">PK</span><span class="cn" data-col="id_proveedor">id_proveedor</span><span class="tp">BIGINT · AUTO</span></div><div class="fl"><span class="tg uq">UQ</span><span class="cn" data-col="ruc">ruc</span><span class="tp">VARCHAR(11) · NN</span></div><div class="fl"><span class="tg nada">·</span><span class="cn" data-col="razon_social">razon_social</span><span class="tp">VARCHAR(150) · NN</span></div><div class="fl"><span class="tg nada">·</span><span class="cn" data-col="direccion">direccion</span><span class="tp">VARCHAR(200)</span></div><div class="fl"><span class="tg nada">·</span><span class="cn" data-col="telefono">telefono</span><span class="tp">VARCHAR(15)</span></div><div class="fl"><span class="tg nada">·</span><span class="cn" data-col="correo">correo</span><span class="tp">VARCHAR(100)</span></div></div></div>
+    <div class="gr f"><div class="grh">bd_producto_dev <i>producto-service</i></div><div class="tb" id="t-prod"><div class="tbh"><b>producto</b><span>tabla</span></div><div class="tbc"><span>clave</span><span>columna</span><span>tipo</span></div><div class="fl"><span class="tg pk">PK</span><span class="cn" data-col="id_producto">id_producto</span><span class="tp">BIGINT · AUTO</span></div><div class="fl"><span class="tg nada">·</span><span class="cn" data-col="nombre">nombre</span><span class="tp">VARCHAR(100) · NN</span></div><div class="fl"><span class="tg nada">·</span><span class="cn" data-col="descripcion">descripcion</span><span class="tp">VARCHAR(200)</span></div><div class="fl"><span class="tg nada">·</span><span class="cn" data-col="precio">precio</span><span class="tp">DOUBLE · NN</span></div><div class="fl"><span class="tg nada">·</span><span class="cn" data-col="stock">stock</span><span class="tp">INT · NN</span></div><div class="fl"><span class="tg ref">REF</span><span class="cn" data-col="id_proveedor">id_proveedor</span><span class="tp">BIGINT · NN</span></div></div></div>
+    <div class="gr dos f"><div class="grh">bd_compra_dev <i>compra-service</i></div><div class="par2"><div class="tb osc" id="t-comp"><div class="tbh"><b>compra</b><span>tabla</span></div><div class="tbc"><span>clave</span><span>columna</span><span>tipo</span></div><div class="fl"><span class="tg pk">PK</span><span class="cn" data-col="id_compra">id_compra</span><span class="tp">BIGINT · AUTO</span></div><div class="fl"><span class="tg nada">·</span><span class="cn" data-col="fecha">fecha</span><span class="tp">DATE · NN</span></div><div class="fl"><span class="tg ref">REF</span><span class="cn" data-col="id_proveedor">id_proveedor</span><span class="tp">BIGINT · NN</span></div><div class="fl"><span class="tg nada">·</span><span class="cn" data-col="total">total</span><span class="tp">DOUBLE · NN</span></div></div><div class="tb osc" id="t-det"><div class="tbh"><b>detalle_compra</b><span>tabla</span></div><div class="tbc"><span>clave</span><span>columna</span><span>tipo</span></div><div class="fl"><span class="tg pk">PK</span><span class="cn" data-col="id_detalle">id_detalle</span><span class="tp">BIGINT · AUTO</span></div><div class="fl"><span class="tg fk">FK</span><span class="cn" data-col="id_compra">id_compra</span><span class="tp">BIGINT</span></div><div class="fl"><span class="tg ref">REF</span><span class="cn" data-col="id_producto">id_producto</span><span class="tp">BIGINT · NN</span></div><div class="fl"><span class="tg nada">·</span><span class="cn" data-col="cantidad">cantidad</span><span class="tp">INT · NN</span></div><div class="fl"><span class="tg nada">·</span><span class="cn" data-col="precio">precio</span><span class="tp">DOUBLE · NN</span></div><div class="fl"><span class="tg nada">·</span><span class="cn" data-col="subtotal">subtotal</span><span class="tp">DOUBLE · NN</span></div></div></div></div>
+  </div>
+  <svg class="rels" viewBox="0 0 1920 1080"></svg>
+  <div class="ley f">
+    <span><b class="tg pk">PK</b> llave primaria</span><span><b class="tg uq">UQ</b> único</span>
+    <span><b class="tg fk">FK</b> llave foránea real · misma base</span><span><b class="tg ref">REF</b> solo guarda el id · otro servicio</span>
+  </div>
+  <aside class="notes">
+    <p>Así está armada la <b>base de datos</b>: tres bases, una por servicio.</p>
+    <p>→ <b>proveedor</b>: el RUC es único. → <b>producto</b>: guarda el <b>id del proveedor</b>, pero sin llave foránea, porque el proveedor vive en otra base.</p>
+    <p>→ <b>compra y detalle_compra</b> sí están en la misma base: ahí hay una <b>FK real</b>, una compra tiene muchos detalles.</p>
+    <p>→ Las líneas punteadas son <b>referencias por id</b>: se consultan con Feign, no con un JOIN.</p>
+    <p>Si preguntan por el <b>double</b> en los montos: para dinero lo ideal es un tipo exacto como BigDecimal; usé double para mantenerlo simple y redondeo a dos decimales.</p>
+  </aside>
+</section>
+
+
+<!-- Arquitectura por capas -->
+<section class="slide arq2" data-tema="Arquitectura">
   <div class="etq ent" style="margin-top:84px">№ 05 · Arquitectura</div>
-  <h2 class="ent" style="font-size:72px;margin-top:18px">Se encuentran por nombre, no por dirección.</h2>
-  <svg viewBox="0 0 1728 700">
-    <defs>
-      <marker id="pta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#002FA7"/></marker>
-    </defs>
-    <g class="f">
-      <rect class="caja" x="0" y="40" width="440" height="150"/>
-      <text x="32" y="98" font-size="34" font-weight="800">proveedor-service</text>
-      <text x="32" y="148" font-size="24" font-family="JetBrains Mono" fill="#002FA7">:8081</text>
-      <rect class="caja" x="644" y="40" width="440" height="150"/>
-      <text x="676" y="98" font-size="34" font-weight="800">producto-service</text>
-      <text x="676" y="148" font-size="24" font-family="JetBrains Mono" fill="#002FA7">:8082</text>
-      <rect class="caja" x="1288" y="40" width="440" height="150"/>
-      <text x="1320" y="98" font-size="34" font-weight="800">compra-service</text>
-      <text x="1320" y="148" font-size="24" font-family="JetBrains Mono" fill="#002FA7">:8083</text>
-    </g>
-    <g class="f">
-      <path class="trazo" style="--l:90" d="M220 190 V280" stroke="#0a0a0a" stroke-width="2"/>
-      <path class="trazo" style="--l:90" d="M864 190 V280" stroke="#0a0a0a" stroke-width="2"/>
-      <path class="trazo" style="--l:90" d="M1508 190 V280" stroke="#0a0a0a" stroke-width="2"/>
-      <rect x="60" y="280" width="320" height="86" fill="#0a0a0a"/><text x="88" y="334" font-size="26" font-family="JetBrains Mono" fill="#fafaf8">bd_proveedor_dev</text>
-      <rect x="704" y="280" width="320" height="86" fill="#0a0a0a"/><text x="736" y="334" font-size="26" font-family="JetBrains Mono" fill="#fafaf8">bd_producto_dev</text>
-      <rect x="1348" y="280" width="320" height="86" fill="#0a0a0a"/><text x="1394" y="334" font-size="26" font-family="JetBrains Mono" fill="#fafaf8">bd_compra_dev</text>
-    </g>
-    <g class="f">
-      <rect x="0" y="560" width="1728" height="110" fill="#002FA7"/>
-      <text x="32" y="628" font-size="34" font-weight="800" fill="#fafaf8">eureka-server :8761</text>
-      <text x="1696" y="628" font-size="24" fill="#fafaf8" text-anchor="end" font-family="JetBrains Mono">REGISTRO · NOMBRE → DIRECCIÓN</text>
-      <path class="trazo" style="--l:520" d="M20 190 V560" stroke="#002FA7" stroke-width="2" stroke-dasharray="8 8"/>
-      <path class="trazo" style="--l:520" d="M664 190 V560" stroke="#002FA7" stroke-width="2"/>
-      <path class="trazo" style="--l:520" d="M1708 190 V560" stroke="#002FA7" stroke-width="2"/>
-    </g>
-    <g class="f">
-      <path id="fe1" class="trazo" style="--l:210" d="M1288 115 H1090" stroke="#002FA7" stroke-width="4" marker-end="url(#pta)"/>
-      <path id="fe2" class="trazo" style="--l:210" d="M644 115 H446" stroke="#002FA7" stroke-width="4" marker-end="url(#pta)"/>
-      <path class="trazo" style="--l:1500" d="M1400 40 V0 H330 V34" stroke="#002FA7" stroke-width="4" fill="none" marker-end="url(#pta)"/>
-      <rect class="paquete" width="16" height="16" x="-8" y="-8" style="offset-path:path('M1288 115 H1090')"/>
-      <rect class="paquete" width="16" height="16" x="-8" y="-8" style="offset-path:path('M644 115 H446')"/>
-      <text x="1189" y="100" font-size="22" font-family="JetBrains Mono" fill="#002FA7" text-anchor="middle">FEIGN</text>
-      <text x="545" y="100" font-size="22" font-family="JetBrains Mono" fill="#002FA7" text-anchor="middle">FEIGN</text>
-      <text x="865" y="-14" font-size="22" font-family="JetBrains Mono" fill="#002FA7" text-anchor="middle">FEIGN · COMPRA → PROVEEDOR</text>
-      <g class="vivo">
-        <path class="m" d="M1288 115 H1090"/><path class="m" d="M644 115 H446"/><path class="m" d="M1400 40 V0 H330 V34"/>
-        <rect class="lat" width="12" height="12" x="-6" y="-6" style="offset-path:path('M20 190 V560')"/>
-        <rect class="lat" width="12" height="12" x="-6" y="-6" style="offset-path:path('M664 190 V560');animation-delay:.7s"/>
-        <rect class="lat" width="12" height="12" x="-6" y="-6" style="offset-path:path('M1708 190 V560');animation-delay:1.4s"/>
-      </g>
-    </g>
+  <h2 class="ent" style="font-size:72px;margin-top:18px">Tres servicios, mismas capas.</h2>
+  <div class="pm f" data-p="a1">Postman · cliente REST · GET · POST · PUT · DELETE</div>
+  <div class="ac f" data-p="a2" style="left:96px"><div class="ach"><b>proveedor-service</b><span>:8081 dev · :9081 prod</span></div><div class="acc"><div class="cp"><b>Controller</b><span>/api/proveedores</span></div><div class="cp"><b>DTO</b><span>ProveedorDTO · @Pattern RUC</span></div><div class="cp"><b>Service</b><span>RUC único, CRUD</span></div><div class="cp vacia"><b>Client</b><span>no depende de nadie</span></div><div class="cp"><b>Repository</b><span>JpaRepository · findByRuc</span></div><div class="cp"><b>Exception</b><span>GlobalExceptionHandler</span></div></div></div><div class="adb f" data-p="a4" style="left:156px"><b>bd_proveedor</b><span>MySQL · 3306</span></div><div class="ac f" data-p="a2" style="left:700px"><div class="ach"><b>producto-service</b><span>:8082 dev · :9082 prod</span></div><div class="acc"><div class="cp"><b>Controller</b><span>/api/productos</span></div><div class="cp"><b>DTO</b><span>ProductoDTO · @Positive</span></div><div class="cp"><b>Service</b><span>verifica el proveedor</span></div><div class="cp"><b>Client</b><span>ProveedorClient · Feign</span></div><div class="cp"><b>Repository</b><span>JpaRepository</span></div><div class="cp"><b>Exception</b><span>GlobalExceptionHandler</span></div></div></div><div class="adb f" data-p="a4" style="left:760px"><b>bd_producto</b><span>MySQL · 3306</span></div><div class="ac f" data-p="a2" style="left:1304px"><div class="ach"><b>compra-service</b><span>:8083 dev · :9083 prod</span></div><div class="acc"><div class="cp"><b>Controller</b><span>/api/compras</span></div><div class="cp"><b>DTO</b><span>CompraDTO · @Valid detalles</span></div><div class="cp"><b>Service</b><span>subtotal y total</span></div><div class="cp"><b>Client</b><span>ProveedorClient · ProductoClient</span></div><div class="cp"><b>Repository</b><span>JpaRepository · cascada</span></div><div class="cp"><b>Exception</b><span>GlobalExceptionHandler</span></div></div></div><div class="adb f" data-p="a4" style="left:1364px"><b>bd_compra · 2 tablas</b><span>MySQL · 3306</span></div>
+  <span class="f mudo" data-p="a3"></span><div class="eu f" data-p="a5">eureka-server :8761 <span>los tres se registran aquí · Feign busca por nombre</span></div>
+  <svg class="lin" viewBox="0 0 1920 1080">
+    <defs><marker id="pf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#002FA7"/></marker></defs>
+    <g class="f" data-p="a1"><path class="tz" pathLength="1" d="M356.0 352 V400"/><text x="368.0" y="384">HTTP</text><path class="tz" pathLength="1" d="M960.0 352 V400"/><text x="972.0" y="384">HTTP</text><path class="tz" pathLength="1" d="M1564.0 352 V400"/><text x="1576.0" y="384">HTTP</text></g>
+    <g class="f" data-p="a4"><path class="tz" pathLength="1" d="M356.0 748 V788"/><path class="tz" pathLength="1" d="M960.0 748 V788"/><path class="tz" pathLength="1" d="M1564.0 748 V788"/></g>
+    <g class="f" data-p="a5"><path class="tz az" pathLength="1" d="M700 631.0 H672.0 V493.0 H616" marker-end="url(#pf)"/><path class="tz az" pathLength="1" d="M1304 623.0 H1262.0 V493.0 H1220" marker-end="url(#pf)"/><path class="tz az" pathLength="1" d="M1304 639.0 H1280.0 V382 H644.0 V503.0 H616" marker-end="url(#pf)"/><g class="vivo2"><path class="fluye" d="M700 631.0 H672.0 V493.0 H616"/><path class="fluye" d="M1304 623.0 H1262.0 V493.0 H1220"/><path class="fluye" d="M1304 639.0 H1280.0 V382 H644.0 V503.0 H616"/><rect class="pq" width="12" height="12" x="-6" y="-6" style="offset-path:path('M700 631.0 H672.0 V493.0 H616');animation-delay:0.0s"/><rect class="pq" width="12" height="12" x="-6" y="-6" style="offset-path:path('M1304 623.0 H1262.0 V493.0 H1220');animation-delay:0.6s"/><rect class="pq" width="12" height="12" x="-6" y="-6" style="offset-path:path('M1304 639.0 H1280.0 V382 H644.0 V503.0 H616');animation-delay:1.2s"/></g>
+      <text class="fx" x="658.0" y="481.0" text-anchor="middle">FEIGN</text><text class="fx" x="1262.0" y="481.0" text-anchor="middle">FEIGN</text></g>
   </svg>
   <aside class="notes">
-    <p>→ Los <b>tres servicios</b>, cada uno en su puerto.</p>
-    <p>→ Cada uno con <b>su base</b>. Ninguno lee las tablas del otro.</p>
-    <p>→ Todos se registran en <b>Eureka</b>: es como una agenda, guarda el nombre y la dirección de cada servicio.</p>
-    <p>→ Cuando compra necesita datos, usa <b>Feign</b>: pregunta por el nombre "producto-service" y Eureka le dice dónde está. <b>No hay IP ni puerto escritos en el código.</b></p>
+    <p>La <b>arquitectura</b>: los tres servicios tienen <b>las mismas capas</b>.</p>
+    <p>→ Postman llama por HTTP a cada uno, en su puerto.</p>
+    <p>→ <b>Controller</b> recibe, el <b>DTO</b> valida, el <b>Service</b> aplica las reglas, el <b>Repository</b> guarda con JPA y el <b>GlobalExceptionHandler</b> arma los errores.</p>
+    <p>→ La capa <b>Client</b> es Feign: producto le pregunta a proveedor, y compra le pregunta a los dos. Los encuentra por nombre gracias a <b>Eureka</b>.</p>
   </aside>
 </section>
 
@@ -444,25 +515,44 @@ p{font-size:24px;line-height:1.4}
     <p>También hay un perfil <b>test</b>, en los puertos 818x.</p>
   </aside>
 </section>
-<!-- 05 · Flujo de una compra (S11 Horizontal Timeline) -->
-<section class="slide flujo" data-tema="Flujo" data-gancho="linea">
-  <div class="etq ent" style="margin-top:84px">№ 07 · Registrar una compra</div>
-  <h2 class="ent" style="font-size:80px;margin-top:18px">Antes de guardar, se verifica todo.</h2>
-  <div class="eje"></div>
-  <div class="marca"><span></span></div>
-  <div class="resp"><span class="k">esperando</span>…</div>
-  <div class="nodos">
-    <div class="nodo f" data-k="→ petición" data-res="POST /api/compras  {idProveedor: 1, fecha, detalles: [2 productos]}" data-txt="POST /api/compras"><div class="mono">PASO 1</div><h3>Llega el POST</h3><p>Proveedor, fecha y la lista de detalles.</p></div>
-    <div class="nodo f" data-k="← respuesta" data-res="GET /api/proveedores/1  →  <b>200</b>  Distribuidora Andina SAC" data-txt="GET /proveedores/1 → 200"><div class="mono">PASO 2</div><h3>¿Existe el proveedor?</h3><p>Se consulta a proveedor-service.</p></div>
-    <div class="nodo f" data-k="← respuesta" data-res="GET /api/productos/1 y /2  →  <b>200</b>  los dos son del proveedor 1" data-txt="GET /productos/1 → 200"><div class="mono">PASO 3</div><h3>¿Y cada producto?</h3><p>Debe existir y ser de ese mismo proveedor.</p></div>
-    <div class="nodo f" data-k="= cálculo" data-res="2 × 2500.00 = 5000.00  ·  3 × 45.50 = 136.50  ·  total <b>5136.50</b>" data-txt="2×2500 + 3×45.5"><div class="mono">PASO 4</div><h3>Calcula</h3><p>Subtotal = cantidad × precio. Total = suma.</p></div>
-    <div class="nodo f" data-k="← respuesta" data-res="<b>201 Created</b>  compra 1 guardada con sus 2 detalles en bd_compra" data-txt="201 Created"><div class="mono">PASO 5</div><h3>Guarda · 201</h3><p>La compra y sus detalles, juntos.</p></div>
-  </div>
+
+<!-- Flujo de una compra con desvíos -->
+<section class="slide flujo2" data-tema="Flujo" data-gancho="flujo2">
+  <div class="etq ent" style="margin-top:84px">№ 07 · Flujo de una compra</div>
+  <h2 class="ent" style="font-size:72px;margin-top:18px">Si algo falla, se desvía. Si no, sigue.</h2>
+  <svg class="fl2" viewBox="0 0 1920 1080">
+    <defs>
+      <marker id="pa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker>
+    </defs>
+    <path class="ed " id="e-0" d="M282 470 H346" marker-end="url(#pa)"/>
+    <path class="ed " id="e-1" d="M552 470 H616" marker-end="url(#pa)"/><text class="lb" id="e-1-t" x="585.0" y="456">sí</text>
+    <path class="ed " id="e-2" d="M822 470 H886" marker-end="url(#pa)"/><text class="lb" id="e-2-t" x="855.0" y="456">sí</text>
+    <path class="ed " id="e-3" d="M1092 470 H1156" marker-end="url(#pa)"/><text class="lb" id="e-3-t" x="1125.0" y="456">sí</text>
+    <path class="ed " id="e-4" d="M1362 470 H1416" marker-end="url(#pa)"/><text class="lb" id="e-4-t" x="1390.0" y="456">sí</text>
+    <path class="ed " id="e-5" d="M1622 470 H1673" marker-end="url(#pa)"/>
+    <path class="ed loop" id="e-loop" d="M1260 388 V320 H990 V384" marker-end="url(#pa)"/><text class="lb" id="e-loop-t" x="1125.0" y="308">siguiente detalle</text>
+    <path class="ed err" id="x-1" d="M450 552 V736" marker-end="url(#pa)"/><text class="lb" id="x-1-t" x="464" y="620">no</text><path class="ed err" id="x-2" d="M720 552 V736" marker-end="url(#pa)"/><text class="lb" id="x-2-t" x="734" y="620">no</text><path class="ed err" id="x-3" d="M990 552 V736" marker-end="url(#pa)"/><text class="lb" id="x-3-t" x="1004" y="620">no</text><path class="ed err" id="x-4" d="M1260 552 V736" marker-end="url(#pa)"/><text class="lb" id="x-4-t" x="1274" y="620">no</text>
+    <g class="nd pill" id="n-ini"><rect x="98.0" y="426" width="184" height="88"/><text x="190" y="464">POST</text><text class="s" x="190" y="492">/api/compras</text></g>
+    <g class="nd" id="n-d1"><polygon points="450,388 552,470 450,552 348,470"/><text x="450" y="464">¿DTO</text><text x="450" y="492">válido?</text></g>
+    <g class="nd" id="n-d2"><polygon points="720,388 822,470 720,552 618,470"/><text x="720" y="464">¿Existe el</text><text x="720" y="492">proveedor?</text></g>
+    <g class="nd" id="n-d3"><polygon points="990,388 1092,470 990,552 888,470"/><text x="990" y="464">¿Existe el</text><text x="990" y="492">producto?</text></g>
+    <g class="nd" id="n-d4"><polygon points="1260,388 1362,470 1260,552 1158,470"/><text x="1260" y="464">¿Es de ese</text><text x="1260" y="492">proveedor?</text></g>
+    <g class="nd " id="n-calc"><rect x="1420.0" y="426" width="200" height="88"/><text x="1520" y="464">Calcula</text><text class="s" x="1520" y="492">subtotal y total</text></g>
+    <g class="nd fin" id="n-fin"><rect x="1675.0" y="426" width="160" height="88"/><text x="1755" y="464">201</text><text class="s" x="1755" y="492">Created</text></g>
+    <g class="er" id="r-1"><rect x="332" y="740" width="236" height="118"/><text class="c" x="450" y="784">400</text><text x="450" y="816">falta un dato o</text><text x="450" y="840">cantidad ≤ 0</text></g>
+    <g class="er" id="r-2"><rect x="602" y="740" width="236" height="118"/><text class="c" x="720" y="784">404</text><text x="720" y="816">proveedor no existe</text><text x="720" y="840">503 si está caído</text></g>
+    <g class="er" id="r-3"><rect x="872" y="740" width="236" height="118"/><text class="c" x="990" y="784">404</text><text x="990" y="816">producto</text><text x="990" y="840">no existe</text></g>
+    <g class="er" id="r-4"><rect x="1142" y="740" width="236" height="118"/><text class="c" x="1260" y="784">400</text><text x="1260" y="816">es de otro</text><text x="1260" y="840">proveedor</text></g>
+  </svg>
+  <div class="tok"></div>
+  <div class="estado2"><span class="k">listo</span><span class="v">→ para recorrer el flujo</span></div>
+  <span class="f mudo"></span>
   <aside class="notes">
-    <p>Así se registra una compra, paso a paso.</p>
-    <p>→ Llega el POST. → Primero pregunta si el <b>proveedor existe</b>. → Luego cada producto: que exista y que sea <b>del mismo proveedor</b>.</p>
-    <p>→ Recién ahí <b>calcula</b>: el cliente no manda el total, lo calcula el servicio. → Y guarda todo junto: <b>201 Created</b>.</p>
-    <p>Si algo falla en el camino, <b>no se guarda nada</b>.</p>
+    <p>Este es el <b>flujo completo</b> de una compra, en una sola pasada.</p>
+    <p>→ Llega el POST. Primero el <b>DTO</b>: si falta un dato o la cantidad es cero, se desvía: <b>400</b>.</p>
+    <p>→ ¿Existe el proveedor? Si no, <b>404</b>; y si el servicio está caído, <b>503</b>.</p>
+    <p>→ Por cada detalle: ¿existe el producto? Si no, 404. ¿Es de ese proveedor? Si no, 400. Esto se repite para el <b>segundo detalle</b>.</p>
+    <p>→ Si todo pasa, <b>calcula</b> y guarda: <b>201 Created</b>. Si hubo cualquier desvío, <b>no se guarda nada</b>.</p>
   </aside>
 </section>
 
@@ -509,31 +599,11 @@ p{font-size:24px;line-height:1.4}
     <p>→ Y cuando vuelve, <b>todo responde 200 solo</b>, sin reiniciar nada. Ningún dato se pierde, porque <b>cada base es independiente</b>.</p>
   </aside>
 </section>
-<!-- 07 · Validaciones (S04 Six Cells) -->
-<section class="slide" data-tema="Datos inválidos">
-  <div class="etq ent" style="margin-top:84px">№ 10 · Información inválida</div>
-  <h2 class="ent" style="font-size:80px;margin-top:18px">Si el dato está mal, no entra.</h2>
-  <div class="seis">
-    <div class="f"><span class="cod">400</span><div><h3>RUC inválido</h3><p>11 dígitos, empieza con 10, 15, 17 o 20.</p></div></div>
-    <div class="f"><span class="cod">400</span><div><h3>RUC repetido</h3><p>Dos proveedores no comparten RUC.</p></div></div>
-    <div class="f"><span class="cod">400</span><div><h3>Nombre vacío</h3><p>Nombre y razón social son obligatorios.</p></div></div>
-    <div class="f"><span class="cod">400</span><div><h3>Cantidad cero</h3><p>Cada detalle necesita cantidad mayor a 0.</p></div></div>
-    <div class="f"><span class="cod">400</span><div><h3>Otro proveedor</h3><p>No se compra un producto ajeno.</p></div></div>
-    <div class="f"><span class="cod n4">404</span><div><h3>No existe</h3><p>Proveedor, producto o compra inexistente.</p></div></div>
-  </div>
-  <aside class="notes">
-    <p>¿Qué pasa cuando llega <b>información inválida</b>?</p>
-    <p>Primero la revisa el <b>DTO</b> con sus validaciones, antes de tocar la base.</p>
-    <p>→ RUC mal escrito → RUC repetido → nombre vacío → cantidad cero: responde <b>400</b> y dice qué campo falló.</p>
-    <p>→ Producto de otro proveedor: es una regla de negocio, también 400. → Si el registro no existe: <b>404</b>.</p>
-    <p>Todo eso lo arma el <b>GlobalExceptionHandler</b>, con un mismo formato de mensaje.</p>
-  </aside>
-</section>
 
 
 <!-- 09 · Postman (S07 H-Bar Chart) -->
 <section class="slide" data-tema="Pruebas">
-  <div class="etq ent" style="margin-top:84px">№ 11 · Postman</div>
+  <div class="etq ent" style="margin-top:84px">№ 10 · Postman</div>
   <h2 class="ent" style="font-size:80px;margin-top:18px">35 peticiones. 35 respuestas esperadas.</h2>
   <div class="hbar">
     <div class="r f" style="--w:100%"><div class="cod">200<small>OK · listar, buscar, editar</small></div><div class="b"></div><div class="n">14</div></div>
@@ -548,63 +618,31 @@ p{font-size:24px;line-height:1.4}
   </aside>
 </section>
 
-<!-- 10 · Evidencia (S22 Image Hero) -->
-<section class="slide foto" data-tema="Evidencia">
-  <div class="marco f"><img src="img/postman-compra.png" alt="Respuesta de Postman al registrar la compra"></div>
-  <div class="titulo ent"><div class="etq">№ 12 · Evidencia real</div><h2 style="font-size:76px;margin-top:14px">201 Created.<br>Total: 5136.5</h2></div>
-  <div class="kpis">
-    <div></div>
-    <div class="kpi f"><b>3</b><span>Servicios en Eureka</span></div>
-    <div class="kpi f"><b>4</b><span>Tablas con datos</span></div>
-    <div class="kpi f"><b>0</b><span>Pruebas fallidas</span></div>
-  </div>
-  <aside class="notes">
-    <p>Esta es la <b>captura real</b> de Postman con la compra.</p>
-    <p>→ Al bajar se ven los detalles, el proveedor y el <b>total 5136.5</b>.</p>
-    <p>→ Los tres servicios estaban en Eureka, → las cuatro tablas guardaron los datos, → y ninguna prueba falló.</p>
-    <p>Si quiere, profesor, lo levanto en vivo.</p>
-  </aside>
-</section>
 
-<!-- 11 · Dificultad (S12 Manifesto + Ink Banner) -->
-<section class="slide difi" data-tema="Dificultad">
-  <div class="etq ent" style="position:absolute;top:190px;left:96px">№ 13 · Dificultad</div>
-  <h2 class="ent">Todo respondía 500.<br><span class="az">El código estaba bien.</span></h2>
-  <p class="exp f">Ya existía una base con el mismo nombre, creada en una práctica anterior, y su tabla tenía otras columnas.</p>
-  <div class="banda f">
-    <div class="etq" style="color:#fafaf8;opacity:.7">Solución</div>
-    <h3>Moví la tabla vieja a una base de respaldo, sin perder datos, y el servicio creó la suya. Ahora reviso que cada proyecto use un nombre de base propio.</h3>
-  </div>
-  <aside class="notes">
-    <p>La <b>dificultad</b>: producto-service respondía <b>500</b> en todo, y el código estaba bien.</p>
-    <p>→ La causa: ya había una base <b>bd_producto_dev</b> de una práctica anterior, con otras columnas.</p>
-    <p>→ La solución: moverla a un <b>respaldo</b> y dejar que el servicio cree la suya. Aprendí a revisar los nombres de base antes de ejecutar.</p>
-  </aside>
-</section>
 
 <!-- 12 · Conclusiones (S16 Multi-card Brief) -->
 <section class="slide" data-tema="Conclusiones">
-  <div class="etq ent" style="margin-top:84px">№ 14 · Conclusiones</div>
-  <h2 class="ent" style="font-size:80px;margin-top:18px">Cinco aprendizajes.</h2>
+  <div class="etq ent" style="margin-top:84px">№ 11 · Conclusiones</div>
+  <h2 class="ent" style="font-size:80px;margin-top:18px">Cinco aprendizajes y una dificultad.</h2>
   <div class="micro">
     <div class="f"><div class="mono">01</div><p>Cada microservicio con una sola responsabilidad y su propia base: un cambio no obliga a tocar los demás.</p></div>
     <div class="f"><div class="mono">02</div><p>Eureka evita escribir direcciones y puertos fijos: cada servicio se encuentra por su nombre.</p></div>
     <div class="f"><div class="mono">03</div><p>Con Feign, consultar a otro servicio es declarar una interfaz, casi como escribir un controlador.</p></div>
     <div class="f"><div class="mono">04</div><p>Validar con DTO y un manejador general da mensajes claros y el código HTTP correcto.</p></div>
     <div class="f"><div class="mono">05</div><p>Los perfiles cambian de ambiente tocando solo la configuración, no el código.</p></div>
-    <div class="acento f"><div class="mono">35/35</div><p>Pruebas en Postman con el resultado esperado.</p></div>
+    <div class="acento f"><div class="mono">Dificultad</div><p>Todo daba 500: una base vieja tenía el mismo nombre. La moví a un respaldo y uso una base propia por proyecto.</p></div>
   </div>
   <aside class="notes">
     <p>Cierro con <b>cinco aprendizajes</b>:</p>
     <p>→ una responsabilidad por servicio → Eureka y los nombres → Feign → validaciones claras → perfiles.</p>
-    <p>→ Y el resultado: <b>35 de 35</b> pruebas correctas.</p>
+    <p>→ Y la <b>dificultad</b>: producto-service daba 500 en todo porque ya existía una bd_producto_dev de otra práctica, con otras columnas. La moví a un <b>respaldo</b> sin perder datos y el servicio creó la suya.</p>
   </aside>
 </section>
 
 <!-- 13 · Cierre (S09 Closing Manifesto) -->
 <section class="slide cierre" data-tema="Cierre">
   <div class="bloque">
-    <div class="etq">№ 15 · Fin</div>
+    <div class="etq">№ 12 · Fin</div>
     <div id="matriz2"></div>
     <h2 class="ent">Gracias.</h2>
     <p style="position:absolute;left:100px;bottom:150px;font-size:28px">¿Preguntas?</p>
@@ -664,7 +702,16 @@ p{font-size:24px;line-height:1.4}
     if (!s.classList.contains('cierre')) s.appendChild(b);
   });
 
-  function frags(s) { return Array.prototype.slice.call(s.querySelectorAll('.f')); }
+  // Cada paso es un grupo: los elementos con el mismo data-p aparecen juntos
+  function frags(s) {
+    var grupos = [], claves = {};
+    s.querySelectorAll('.f').forEach(function (f, i) {
+      var k = f.dataset.p || ('u' + i);
+      if (!(k in claves)) { claves[k] = grupos.length; grupos.push([]); }
+      grupos[claves[k]].push(f);
+    });
+    return grupos;
+  }
 
   // Matriz de caracteres que "respira" en portada y cierre
   function matriz(id, filas, cols) {
@@ -774,8 +821,111 @@ p{font-size:24px;line-height:1.4}
     s.querySelector('.leyenda .texto').textContent = e.t;
   }
 
+
+  // ---------- Base de datos: relaciones entre tablas ----------
+  function puntoFila(s, tabla, col, lado) {
+    var tb = s.querySelector('#' + tabla), base = esc.getBoundingClientRect(), k = base.width / 1920;
+    var el = tabla && col ? tb.querySelector('[data-col="' + col + '"]').parentNode : tb;
+    var r = el.getBoundingClientRect();
+    return {x: ((lado === 'der' ? r.right : r.left) - base.left) / k, y: (r.top + r.height / 2 - base.top) / k, b: (r.bottom - base.top) / k, cx: (r.left + r.width / 2 - base.left) / k};
+  }
+  function relaciones(s, ver) {
+    var svg = s.querySelector('svg.rels');
+    if (!ver) { svg.innerHTML = ''; return; }
+    var rels = [
+      ['t-prod', 'id_proveedor', 't-prov', 'id_proveedor', 'ref', 880],
+      ['t-comp', 'id_proveedor', 't-prov', 'id_proveedor', 'ref', 910],
+      ['t-det', 'id_producto', 't-prod', 'id_producto', 'ref', 895],
+      ['t-det', 'id_compra', 't-comp', 'id_compra', 'real', 0]
+    ];
+    var html = '';
+    rels.forEach(function (r) {
+      var a = puntoFila(s, r[0], r[1], 'izq'), b = puntoFila(s, r[2], r[3], r[4] === 'real' ? 'der' : 'der');
+      var d;
+      if (r[4] === 'real') {
+        d = 'M' + a.x + ' ' + a.y + ' H' + (a.x - 14) + ' V' + b.y + ' H' + b.x;
+      } else {
+        var lane = r[5] - 140;
+        d = 'M' + a.x + ' ' + a.y + ' H' + (a.x - 18) + ' V' + lane + ' H' + (b.x + 18) + ' V' + b.y + ' H' + b.x;
+      }
+      html += '<path class="rel ' + r[4] + '" d="' + d + '"/>';
+    });
+    svg.innerHTML = html;
+    requestAnimationFrame(function () { svg.querySelectorAll('.rel').forEach(function (p, i) { setTimeout(function () { p.classList.add('on'); }, i * 220); }); });
+  }
+
+  // ---------- Flujo: un recorrido completo con desvíos ----------
+  var flujoVivo = 0;
+  function flujo2(s, n) {
+    var mio = ++flujoVivo;
+    var tok = s.querySelector('.tok');
+    var est = s.querySelector('.estado2');
+    function q(id) { return s.querySelector('#' + id); }
+    function luz(id) { var e = q(id); if (e) e.classList.add('lit'); var t = q(id + '-t'); if (t) t.classList.add('lit'); }
+    s.querySelectorAll('.lit,.activo,.flash').forEach(function (e) { e.classList.remove('lit', 'activo', 'flash'); });
+    s.querySelectorAll('.tok2').forEach(function (e) { e.remove(); });
+    tok.style.opacity = 0;
+    function decir(k, v) { est.querySelector('.k').textContent = k; est.querySelector('.v').textContent = v; }
+    if (n === 0) { decir('listo', '→ para recorrer el flujo completo'); return; }
+    var Y = 470, YE = 790;
+    var X = {ini: 190, d1: 450, d2: 720, d3: 990, d4: 1260, calc: 1520, fin: 1755};
+    var reducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function mover(el, pts, vel) {
+      if (reducido) { var u = pts[pts.length - 1]; el.style.transform = 'translate(' + u[0] + 'px,' + u[1] + 'px)'; return Promise.resolve(); }
+      var largo = 0;
+      for (var i = 1; i < pts.length; i++) largo += Math.abs(pts[i][0] - pts[i - 1][0]) + Math.abs(pts[i][1] - pts[i - 1][1]);
+      var acc = 0, frames = pts.map(function (p, i) {
+        if (i) acc += Math.abs(p[0] - pts[i - 1][0]) + Math.abs(p[1] - pts[i - 1][1]);
+        return {transform: 'translate(' + p[0] + 'px,' + p[1] + 'px)', offset: largo ? acc / largo : 0};
+      });
+      var a = el.animate(frames, {duration: Math.max(250, largo / vel * 1000), easing: 'cubic-bezier(.65,0,.35,1)', fill: 'forwards'});
+      return a.finished;
+    }
+    function espera(ms) { return new Promise(function (r) { setTimeout(r, reducido ? 0 : ms); }); }
+    function vivo() { return mio === flujoVivo && s.classList.contains('is-active'); }
+    function nodo(id) { s.querySelectorAll('.activo').forEach(function (e) { e.classList.remove('activo'); }); luz(id); q(id).classList.add('activo'); }
+    function desvio(k, d, txt) {
+      if (!vivo()) return Promise.resolve();
+      var t2 = document.createElement('div');
+      t2.className = 'tok2'; s.appendChild(t2); t2.style.opacity = 1;
+      luz('x-' + k); decir('desvío ' + k + ' / 4', txt);
+      return mover(t2, [[X[d], Y + 82], [X[d], YE - 54]], 900).then(function () {
+        luz('r-' + k); q('r-' + k).classList.add('flash');
+        return espera(650);
+      }).then(function () { q('r-' + k).classList.remove('flash'); t2.remove(); });
+    }
+    tok.style.opacity = 1;
+    tok.style.transform = 'translate(' + X.ini + 'px,' + Y + 'px)';
+    nodo('n-ini'); decir('inicio', 'Llega POST /api/compras con el proveedor 1 y dos detalles');
+    var paso = espera(700)
+      .then(function () { luz('e-0'); return mover(tok, [[X.ini, Y], [X.d1, Y]], 700); })
+      .then(function () { nodo('n-d1'); return desvio(1, 'd1', 'Si falta un dato o la cantidad es 0: 400 y no se guarda nada'); })
+      .then(function () { decir('sí', 'Los datos son válidos'); luz('e-1'); return mover(tok, [[X.d1, Y], [X.d2, Y]], 700); })
+      .then(function () { nodo('n-d2'); return desvio(2, 'd2', 'Si el proveedor no existe: 404 · si su servicio está caído: 503'); })
+      .then(function () { decir('sí', 'Distribuidora Andina existe'); luz('e-2'); return mover(tok, [[X.d2, Y], [X.d3, Y]], 700); })
+      .then(function () { nodo('n-d3'); decir('detalle 1 / 2', 'Laptop Lenovo 14'); return desvio(3, 'd3', 'Si el producto no existe: 404'); })
+      .then(function () { luz('e-3'); return mover(tok, [[X.d3, Y], [X.d4, Y]], 700); })
+      .then(function () { nodo('n-d4'); return desvio(4, 'd4', 'Si el producto es de otro proveedor: 400'); })
+      .then(function () { if (!vivo()) return; luz('e-loop'); decir('detalle 2 / 2', 'Vuelve a verificar con el mouse inalámbrico'); return mover(tok, [[X.d4, Y], [X.d4, Y - 150], [X.d3, Y - 150], [X.d3, Y]], 900); })
+      .then(function () { if (!vivo()) return; nodo('n-d3'); return mover(tok, [[X.d3, Y], [X.d4, Y]], 800); })
+      .then(function () { if (!vivo()) return; nodo('n-d4'); luz('e-4'); decir('sí', 'Los dos productos pasan'); return mover(tok, [[X.d4, Y], [X.calc, Y]], 700); })
+      .then(function () { if (!vivo()) return; nodo('n-calc'); decir('cálculo', '2 × 2500.00 + 3 × 45.50 = 5136.50'); return espera(1100); })
+      .then(function () { if (!vivo()) return; luz('e-5'); return mover(tok, [[X.calc, Y], [X.fin, Y]], 700); })
+      .then(function () {
+        if (!vivo()) return;
+        nodo('n-fin'); tok.style.opacity = 0;
+        s.querySelectorAll('.nd,.ed,.er,.lb').forEach(function (e) { e.classList.add('lit'); });
+        s.querySelectorAll('.activo').forEach(function (e) { e.classList.remove('activo'); });
+        decir('201 created', 'Flujo completo: un camino correcto y cuatro desvíos de error');
+      });
+    return paso;
+  }
+
   function ganchos(s, n) {
     if (s.dataset.gancho === 'caida') caida(s, n);
+    if (s.dataset.gancho === 'bd') relaciones(s, n >= 4);
+    if (s.dataset.gancho === 'flujo2') flujo2(s, n);
+    if (s.classList.contains('arq2')) s.querySelectorAll('.ac').forEach(function (c) { c.classList.toggle('on2', n >= 3); });
     if (s.dataset.gancho === 'amb') {
       s.querySelectorAll('.par').forEach(function (p) { p.classList.toggle('on2', n >= 4); });
     }
@@ -788,11 +938,13 @@ p{font-size:24px;line-height:1.4}
       s.querySelector('.resp').innerHTML = n > 0 ? '<span class="k">' + nodos[k].dataset.k + '</span>' + nodos[k].dataset.res : '<span class="k">esperando</span>la compra…';
     }
   }
-  function alMostrar(s, f) {
-    f.classList.add('on');
-    var c = f.querySelector('[data-fin]');
-    if (c) contar(c);
-    ganchos(s, frags(s).filter(function (x) { return x.classList.contains('on'); }).length);
+  function alMostrar(s, g, n) {
+    g.forEach(function (f) {
+      f.classList.add('on');
+      var c = f.querySelector('[data-fin]');
+      if (c) contar(c);
+    });
+    ganchos(s, n);
   }
 
   function pintar(n, pasos, conCortina) {
@@ -804,10 +956,12 @@ p{font-size:24px;line-height:1.4}
       var s = slides[n];
       void s.offsetWidth;
       s.classList.add('entra');
-      frags(s).forEach(function (f, i) {
-        f.classList.toggle('on', i < pasos);
-        var c = f.querySelector('[data-fin]');
-        if (c) c.textContent = i < pasos ? parseFloat(c.dataset.fin).toFixed(2) : '0';
+      frags(s).forEach(function (g, i) {
+        g.forEach(function (f) {
+          f.classList.toggle('on', i < pasos);
+          var c = f.querySelector('[data-fin]');
+          if (c) c.textContent = i < pasos ? parseFloat(c.dataset.fin).toFixed(2) : '0';
+        });
       });
       ganchos(s, pasos);
       if (s.dataset.gancho === 'boot') boot(s);
@@ -833,7 +987,7 @@ p{font-size:24px;line-height:1.4}
   function siguiente() {
     var f = frags(slides[idx]);
     if (paso < f.length) {
-      alMostrar(slides[idx], f[paso]);
+      alMostrar(slides[idx], f[paso], paso + 1);
       paso++;
     } else if (idx < total - 1) {
       pintar(idx + 1, 0, true);
@@ -844,7 +998,7 @@ p{font-size:24px;line-height:1.4}
     var f = frags(slides[idx]);
     if (paso > 0) {
       paso--;
-      f[paso].classList.remove('on');
+      f[paso].forEach(function (x) { x.classList.remove('on'); });
       ganchos(slides[idx], paso);
     } else if (idx > 0) {
       pintar(idx - 1, frags(slides[idx - 1]).length, true);
