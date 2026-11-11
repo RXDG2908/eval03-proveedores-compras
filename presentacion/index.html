@@ -365,6 +365,36 @@ p{font-size:24px;line-height:1.4}
 .flujo2 .estado2 .k{font:700 20px/1 var(--mono);color:var(--ikb);text-transform:uppercase;letter-spacing:.1em}
 .flujo2 .estado2 .v{font:800 30px/1.15 var(--disp)}
 
+
+/* ---------- Flujo paso a paso ---------- */
+.flujo2 .pasoN{position:absolute;right:96px;top:170px;font:700 64px/1 var(--mono);color:var(--ikb);letter-spacing:-.03em}
+.flujo2 .pasoN span{font-size:26px;color:var(--ink);opacity:.4;margin-left:6px}
+.flujo2 .er.visto rect{stroke:var(--rojo)}
+.flujo2 .er.visto text{fill:var(--ink)}
+.flujo2 .er.visto text.c{fill:var(--rojo)}
+.flujo2 .capas{position:absolute;left:96px;right:96px;top:690px;display:grid;grid-template-columns:repeat(6,1fr);border:1px solid var(--ink)}
+.flujo2 .capas span{font:700 15px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;text-align:center;padding:14px 0;border-right:1px solid var(--ink);color:var(--gris2);transition:background .3s,color .3s}
+.flujo2 .capas span:last-child{border-right:0}
+.flujo2 .capas span.on{background:var(--ikb);color:var(--paper)}
+.flujo2 .capas span[data-c="5"].on{background:var(--rojo)}
+.flujo2 .pan{position:absolute;top:752px;height:206px;border:1px solid var(--ink);overflow:hidden}
+.flujo2 .pan.ok{left:96px;width:1010px;background:var(--ink);color:#d8d8d2}
+.flujo2 .pan.er2{left:1130px;right:96px;background:var(--paper);color:var(--gris2);transition:background .3s,color .3s,border-color .3s}
+.flujo2 .pan.er2.bien{border-color:var(--ikb);color:var(--ink)}
+.flujo2 .pan.er2.bien .ph .k{color:var(--ikb)}
+.flujo2 .pan.er2.activo{border-color:var(--rojo);color:var(--ink)}
+.flujo2 .ph{display:flex;gap:18px;align-items:baseline;padding:16px 22px 10px;border-bottom:1px solid currentColor}
+.flujo2 .pan.ok .ph{border-color:#2a2a2a}
+.flujo2 .ph .k{font:700 13px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#7f9cff}
+.flujo2 .pan.er2 .ph .k{color:var(--gris2)}
+.flujo2 .pan.er2.activo .ph .k{color:var(--rojo)}
+.flujo2 .ph .tt{font:800 22px/1.1 var(--disp)}
+.flujo2 .pan.ok .ph .tt{color:var(--paper)}
+.flujo2 .cd{font:400 17px/1.48 var(--mono);padding:12px 22px;white-space:pre;margin:0}
+.flujo2 .entra2 .cd{animation:aparece .45s var(--e)}
+@keyframes aparece{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.flujo2 .tok{width:28px;height:28px;margin:-14px 0 0 -14px}
+
 @media (prefers-reduced-motion: reduce){
   .f,.f.corte,.trazo,.barra,.b,.marca,.foto .marco img{transition:none!important}
   #cortina.pasa,.slide.entra .ent,.arq .on .paquete,.tr,.vivo .m,.vivo .lat,.nodo3,.led,.cursor{animation:none!important}
@@ -516,43 +546,49 @@ p{font-size:24px;line-height:1.4}
   </aside>
 </section>
 
-<!-- Flujo de una compra con desvíos -->
+
+<!-- Flujo de una compra, paso a paso -->
 <section class="slide flujo2" data-tema="Flujo" data-gancho="flujo2">
   <div class="etq ent" style="margin-top:84px">№ 07 · Flujo de una compra</div>
   <h2 class="ent" style="font-size:72px;margin-top:18px">Si algo falla, se desvía. Si no, sigue.</h2>
+  <div class="pasoN"><b>00</b><span>/ 08</span></div>
   <svg class="fl2" viewBox="0 0 1920 1080">
-    <defs>
-      <marker id="pa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker>
-    </defs>
-    <path class="ed " id="e-0" d="M282 470 H346" marker-end="url(#pa)"/>
-    <path class="ed " id="e-1" d="M552 470 H616" marker-end="url(#pa)"/><text class="lb" id="e-1-t" x="585.0" y="456">sí</text>
-    <path class="ed " id="e-2" d="M822 470 H886" marker-end="url(#pa)"/><text class="lb" id="e-2-t" x="855.0" y="456">sí</text>
-    <path class="ed " id="e-3" d="M1092 470 H1156" marker-end="url(#pa)"/><text class="lb" id="e-3-t" x="1125.0" y="456">sí</text>
-    <path class="ed " id="e-4" d="M1362 470 H1416" marker-end="url(#pa)"/><text class="lb" id="e-4-t" x="1390.0" y="456">sí</text>
-    <path class="ed " id="e-5" d="M1622 470 H1673" marker-end="url(#pa)"/>
-    <path class="ed loop" id="e-loop" d="M1260 388 V320 H990 V384" marker-end="url(#pa)"/><text class="lb" id="e-loop-t" x="1125.0" y="308">siguiente detalle</text>
-    <path class="ed err" id="x-1" d="M450 552 V736" marker-end="url(#pa)"/><text class="lb" id="x-1-t" x="464" y="620">no</text><path class="ed err" id="x-2" d="M720 552 V736" marker-end="url(#pa)"/><text class="lb" id="x-2-t" x="734" y="620">no</text><path class="ed err" id="x-3" d="M990 552 V736" marker-end="url(#pa)"/><text class="lb" id="x-3-t" x="1004" y="620">no</text><path class="ed err" id="x-4" d="M1260 552 V736" marker-end="url(#pa)"/><text class="lb" id="x-4-t" x="1274" y="620">no</text>
-    <g class="nd pill" id="n-ini"><rect x="98.0" y="426" width="184" height="88"/><text x="190" y="464">POST</text><text class="s" x="190" y="492">/api/compras</text></g>
-    <g class="nd" id="n-d1"><polygon points="450,388 552,470 450,552 348,470"/><text x="450" y="464">¿DTO</text><text x="450" y="492">válido?</text></g>
-    <g class="nd" id="n-d2"><polygon points="720,388 822,470 720,552 618,470"/><text x="720" y="464">¿Existe el</text><text x="720" y="492">proveedor?</text></g>
-    <g class="nd" id="n-d3"><polygon points="990,388 1092,470 990,552 888,470"/><text x="990" y="464">¿Existe el</text><text x="990" y="492">producto?</text></g>
-    <g class="nd" id="n-d4"><polygon points="1260,388 1362,470 1260,552 1158,470"/><text x="1260" y="464">¿Es de ese</text><text x="1260" y="492">proveedor?</text></g>
-    <g class="nd " id="n-calc"><rect x="1420.0" y="426" width="200" height="88"/><text x="1520" y="464">Calcula</text><text class="s" x="1520" y="492">subtotal y total</text></g>
-    <g class="nd fin" id="n-fin"><rect x="1675.0" y="426" width="160" height="88"/><text x="1755" y="464">201</text><text class="s" x="1755" y="492">Created</text></g>
-    <g class="er" id="r-1"><rect x="332" y="740" width="236" height="118"/><text class="c" x="450" y="784">400</text><text x="450" y="816">falta un dato o</text><text x="450" y="840">cantidad ≤ 0</text></g>
-    <g class="er" id="r-2"><rect x="602" y="740" width="236" height="118"/><text class="c" x="720" y="784">404</text><text x="720" y="816">proveedor no existe</text><text x="720" y="840">503 si está caído</text></g>
-    <g class="er" id="r-3"><rect x="872" y="740" width="236" height="118"/><text class="c" x="990" y="784">404</text><text x="990" y="816">producto</text><text x="990" y="840">no existe</text></g>
-    <g class="er" id="r-4"><rect x="1142" y="740" width="236" height="118"/><text class="c" x="1260" y="784">400</text><text x="1260" y="816">es de otro</text><text x="1260" y="840">proveedor</text></g>
+    <defs><marker id="pa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+    <path class="ed " id="e-0" d="M272 430 H350" marker-end="url(#pa)"/>
+    <path class="ed " id="e-1" d="M546 430 H620" marker-end="url(#pa)"/><text class="lb" id="e-1-t" x="585.0" y="418">sí</text>
+    <path class="ed " id="e-2" d="M816 430 H890" marker-end="url(#pa)"/><text class="lb" id="e-2-t" x="855.0" y="418">sí</text>
+    <path class="ed " id="e-3" d="M1086 430 H1160" marker-end="url(#pa)"/><text class="lb" id="e-3-t" x="1125.0" y="418">sí</text>
+    <path class="ed " id="e-4" d="M1356 430 H1416" marker-end="url(#pa)"/><text class="lb" id="e-4-t" x="1384.0" y="418">sí</text>
+    <path class="ed " id="e-5" d="M1620 430 H1683" marker-end="url(#pa)"/>
+    <path class="ed loop" id="e-loop" d="M1260 356 V298 H990 V352" marker-end="url(#pa)"/><text class="lb" id="e-loop-t" x="1125.0" y="286">siguiente detalle</text>
+    <path class="ed err" id="x-1" d="M450 504 V564" marker-end="url(#pa)"/><text class="lb" id="x-1-t" x="466" y="548">no</text><path class="ed err" id="x-2" d="M720 504 V564" marker-end="url(#pa)"/><text class="lb" id="x-2-t" x="736" y="548">no</text><path class="ed err" id="x-3" d="M990 504 V564" marker-end="url(#pa)"/><text class="lb" id="x-3-t" x="1006" y="548">no</text><path class="ed err" id="x-4" d="M1260 504 V564" marker-end="url(#pa)"/><text class="lb" id="x-4-t" x="1276" y="548">no</text>
+    <g class="nd pill" id="n-ini"><rect x="108.0" y="388" width="164" height="84"/><text x="190" y="425">POST</text><text class="s" x="190" y="451">/api/compras</text></g>
+    <g class="nd" id="n-d1"><polygon points="450,356 546,430 450,504 354,430"/><text x="450" y="425">¿DTO</text><text x="450" y="451">válido?</text></g>
+    <g class="nd" id="n-d2"><polygon points="720,356 816,430 720,504 624,430"/><text x="720" y="425">¿Existe el</text><text x="720" y="451">proveedor?</text></g>
+    <g class="nd" id="n-d3"><polygon points="990,356 1086,430 990,504 894,430"/><text x="990" y="425">¿Existe el</text><text x="990" y="451">producto?</text></g>
+    <g class="nd" id="n-d4"><polygon points="1260,356 1356,430 1260,504 1164,430"/><text x="1260" y="425">¿Es de ese</text><text x="1260" y="451">proveedor?</text></g>
+    <g class="nd " id="n-calc"><rect x="1420.0" y="388" width="200" height="84"/><text x="1520" y="425">Calcula</text><text class="s" x="1520" y="451">subtotal y total</text></g>
+    <g class="nd fin" id="n-fin"><rect x="1683.0" y="388" width="144" height="84"/><text x="1755" y="425">201</text><text class="s" x="1755" y="451">Created</text></g>
+    <g class="er" id="r-1"><rect x="338" y="568" width="224" height="88"/><text class="c" x="450" y="614">400</text><text x="450" y="642">Bad Request</text></g>
+    <g class="er" id="r-2"><rect x="608" y="568" width="224" height="88"/><text class="c" x="720" y="614">404 / 503</text><text x="720" y="642">Not Found · caído</text></g>
+    <g class="er" id="r-3"><rect x="878" y="568" width="224" height="88"/><text class="c" x="990" y="614">404</text><text x="990" y="642">Not Found</text></g>
+    <g class="er" id="r-4"><rect x="1148" y="568" width="224" height="88"/><text class="c" x="1260" y="614">400</text><text x="1260" y="642">Bad Request</text></g>
   </svg>
   <div class="tok"></div>
-  <div class="estado2"><span class="k">listo</span><span class="v">→ para recorrer el flujo</span></div>
-  <span class="f mudo"></span>
+  <div class="capas"><span data-c="0">Controller</span><span data-c="1">DTO</span><span data-c="2">Service</span><span data-c="3">Client · Feign</span><span data-c="4">Repository</span><span data-c="5">Exception</span></div>
+  <div class="pan ok"><div class="ph"><span class="k">camino correcto</span><b class="tt">Esperando la petición</b></div><pre class="cd">Presiona → para empezar</pre></div>
+  <div class="pan er2"><div class="ph"><span class="k">desvío</span><b class="tt">Sin desvíos todavía</b></div><pre class="cd">—</pre></div>
+  <span class="f mudo"></span><span class="f mudo"></span><span class="f mudo"></span><span class="f mudo"></span><span class="f mudo"></span><span class="f mudo"></span><span class="f mudo"></span><span class="f mudo"></span>
   <aside class="notes">
-    <p>Este es el <b>flujo completo</b> de una compra, en una sola pasada.</p>
-    <p>→ Llega el POST. Primero el <b>DTO</b>: si falta un dato o la cantidad es cero, se desvía: <b>400</b>.</p>
-    <p>→ ¿Existe el proveedor? Si no, <b>404</b>; y si el servicio está caído, <b>503</b>.</p>
-    <p>→ Por cada detalle: ¿existe el producto? Si no, 404. ¿Es de ese proveedor? Si no, 400. Esto se repite para el <b>segundo detalle</b>.</p>
-    <p>→ Si todo pasa, <b>calcula</b> y guarda: <b>201 Created</b>. Si hubo cualquier desvío, <b>no se guarda nada</b>.</p>
+    <p>Este es el <b>flujo completo</b> de una compra. Avanzo un paso a la vez.</p>
+    <p>→ 1. Llega el <b>POST</b> al <b>Controller</b>, con el proveedor 1 y dos detalles.</p>
+    <p>→ 2. El <b>DTO</b> valida: si falta un dato o la cantidad es cero, se desvía con <b>400</b> y dice qué campo falló.</p>
+    <p>→ 3. Con <b>Feign</b> pregunta si existe el proveedor. Si no, <b>404</b>; si su servicio está caído, <b>503</b>.</p>
+    <p>→ 4. Por cada detalle: ¿existe el producto? Si no, 404.</p>
+    <p>→ 5. ¿Ese producto es del mismo proveedor? Si no, <b>400</b>: regla de negocio.</p>
+    <p>→ 6. Repite las dos preguntas con el <b>segundo detalle</b>.</p>
+    <p>→ 7. El <b>Service</b> calcula: subtotal por detalle y el total.</p>
+    <p>→ 8. El <b>Repository</b> guarda la compra y sus detalles juntos: <b>201 Created</b>. Si hubo cualquier desvío, no se guardó nada.</p>
   </aside>
 </section>
 
@@ -854,71 +890,94 @@ p{font-size:24px;line-height:1.4}
     requestAnimationFrame(function () { svg.querySelectorAll('.rel').forEach(function (p, i) { setTimeout(function () { p.classList.add('on'); }, i * 220); }); });
   }
 
-  // ---------- Flujo: un recorrido completo con desvíos ----------
-  var flujoVivo = 0;
+
+  // ---------- Flujo: un paso por cada flecha ----------
+  var PASOS_FLUJO = [{"n": "n-ini", "e": [], "c": [0], "ok": ["petición · Controller", "POST /api/compras\n{ \"idProveedor\": 1,  \"fecha\": \"2026-11-06\",\n  \"detalles\": [\n    { \"idProducto\": 1, \"cantidad\": 2, \"precio\": 2500.00 },\n    { \"idProducto\": 2, \"cantidad\": 3, \"precio\": 45.50 } ] }"], "er": null}, {"n": "n-d1", "e": ["e-0"], "c": [1], "ok": ["DTO · @Valid", "@NotNull  idProveedor, fecha\n@Size(min = 1)  detalles\n@Min(1)  cantidad   ·   @Positive  precio\n\n✓ todos los campos cumplen"], "er": [1, "400 · un campo no cumple", "{\n  \"detalles[0].cantidad\":\n     \"La cantidad debe ser mayor a 0\"\n}"]}, {"n": "n-d2", "e": ["e-1"], "c": [3], "ok": ["Feign · ProveedorClient", "GET proveedor-service /api/proveedores/1\n\n← 200 OK\n{ \"idProveedor\": 1,\n  \"razonSocial\": \"Distribuidora Andina SAC\" }"], "er": [2, "404 · o 503 si está caído", "{ \"codigo\": \"404\",\n  \"mensaje\": \"Proveedor no encontrado con id: 999\" }\n\n{ \"codigo\": \"503\",\n  \"mensaje\": \"No se pudo comunicar con otro microservicio\" }"]}, {"n": "n-d3", "e": ["e-2"], "c": [3], "ok": ["detalle 1 / 2 · ProductoClient", "GET producto-service /api/productos/1\n\n← 200 OK\n{ \"idProducto\": 1, \"nombre\": \"Laptop Lenovo 14\", \"idProveedor\": 1 }"], "er": [3, "404 · el producto no existe", "{ \"codigo\": \"404\",\n  \"mensaje\": \"Producto no encontrado con id: 999\" }"]}, {"n": "n-d4", "e": ["e-3"], "c": [2], "ok": ["regla de negocio · Service", "producto.idProveedor  ==  compra.idProveedor\n          1           ==          1\n\n✓ la laptop es de Distribuidora Andina"], "er": [4, "400 · es de otro proveedor", "{ \"codigo\": \"400\",\n  \"mensaje\": \"El producto Papel bond A4 no\n   pertenece al proveedor Distribuidora Andina SAC\" }"]}, {"n": "n-d4", "e": ["e-loop"], "c": [3, 2], "ok": ["detalle 2 / 2 · mismas preguntas", "GET /api/productos/2   ← 200 OK\n{ \"nombre\": \"Mouse inalambrico\", \"idProveedor\": 1 }\n\n✓ existe   ✓ es del proveedor 1"], "er": null, "loop": true}, {"n": "n-calc", "e": ["e-4"], "c": [2], "ok": ["cálculo · Service", "subtotal = cantidad × precio\n  2 × 2500.00 = 5000.00\n  3 ×   45.50 =  136.50\ntotal = 5000.00 + 136.50 = 5136.50"], "er": null}, {"n": "n-fin", "e": ["e-5"], "c": [4], "ok": ["guardado · Repository", "← 201 Created\n{ \"idCompra\": 1,\n  \"total\": 5136.5,\n  \"detalles\": [ subtotal 5000.0, subtotal 136.5 ],\n  \"proveedor\": { \"razonSocial\": \"Distribuidora Andina SAC\" } }"], "er": null, "fin": true}];
+  var FX = {'n-ini': 190, 'n-d1': 450, 'n-d2': 720, 'n-d3': 990, 'n-d4': 1260, 'n-calc': 1520, 'n-fin': 1755};
+  var FY = 430, FYE = 612, flujoPrev = 0;
   function flujo2(s, n) {
-    var mio = ++flujoVivo;
-    var tok = s.querySelector('.tok');
-    var est = s.querySelector('.estado2');
-    function q(id) { return s.querySelector('#' + id); }
-    function luz(id) { var e = q(id); if (e) e.classList.add('lit'); var t = q(id + '-t'); if (t) t.classList.add('lit'); }
-    s.querySelectorAll('.lit,.activo,.flash').forEach(function (e) { e.classList.remove('lit', 'activo', 'flash'); });
-    s.querySelectorAll('.tok2').forEach(function (e) { e.remove(); });
-    tok.style.opacity = 0;
-    function decir(k, v) { est.querySelector('.k').textContent = k; est.querySelector('.v').textContent = v; }
-    if (n === 0) { decir('listo', '→ para recorrer el flujo completo'); return; }
-    var Y = 470, YE = 790;
-    var X = {ini: 190, d1: 450, d2: 720, d3: 990, d4: 1260, calc: 1520, fin: 1755};
     var reducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    function mover(el, pts, vel) {
-      if (reducido) { var u = pts[pts.length - 1]; el.style.transform = 'translate(' + u[0] + 'px,' + u[1] + 'px)'; return Promise.resolve(); }
-      var largo = 0;
-      for (var i = 1; i < pts.length; i++) largo += Math.abs(pts[i][0] - pts[i - 1][0]) + Math.abs(pts[i][1] - pts[i - 1][1]);
-      var acc = 0, frames = pts.map(function (p, i) {
-        if (i) acc += Math.abs(p[0] - pts[i - 1][0]) + Math.abs(p[1] - pts[i - 1][1]);
-        return {transform: 'translate(' + p[0] + 'px,' + p[1] + 'px)', offset: largo ? acc / largo : 0};
-      });
-      var a = el.animate(frames, {duration: Math.max(250, largo / vel * 1000), easing: 'cubic-bezier(.65,0,.35,1)', fill: 'forwards'});
-      return a.finished;
+    function q(id) { return s.querySelector('#' + id); }
+    function luz(id, clase) { var e = q(id); if (e) e.classList.add(clase || 'lit'); var lb = q(id + '-t'); if (lb) lb.classList.add('lit'); }
+    s.querySelectorAll('.lit,.activo,.flash,.visto').forEach(function (e) { e.classList.remove('lit', 'activo', 'flash', 'visto'); });
+    s.querySelectorAll('.tok2').forEach(function (e) { e.remove(); });
+    var tok = s.querySelector('.tok');
+    var ok = s.querySelector('.pan.ok'), er = s.querySelector('.pan.er2');
+    s.querySelector('.pasoN b').textContent = (n < 10 ? '0' : '') + n;
+    s.querySelectorAll('.capas span').forEach(function (c) { c.classList.remove('on'); });
+    if (n === 0) {
+      tok.getAnimations().forEach(function (x) { x.cancel(); });
+      tok.style.opacity = 0; flujoPrev = 0;
+      ok.querySelector('.tt').textContent = 'Esperando la petición';
+      ok.querySelector('.cd').textContent = 'Presiona → para empezar';
+      er.classList.remove('activo');
+      er.querySelector('.tt').textContent = 'Sin desvíos todavía';
+      er.querySelector('.cd').textContent = '—';
+      return;
     }
-    function espera(ms) { return new Promise(function (r) { setTimeout(r, reducido ? 0 : ms); }); }
-    function vivo() { return mio === flujoVivo && s.classList.contains('is-active'); }
-    function nodo(id) { s.querySelectorAll('.activo').forEach(function (e) { e.classList.remove('activo'); }); luz(id); q(id).classList.add('activo'); }
-    function desvio(k, d, txt) {
-      if (!vivo()) return Promise.resolve();
-      var t2 = document.createElement('div');
-      t2.className = 'tok2'; s.appendChild(t2); t2.style.opacity = 1;
-      luz('x-' + k); decir('desvío ' + k + ' / 4', txt);
-      return mover(t2, [[X[d], Y + 82], [X[d], YE - 54]], 900).then(function () {
-        luz('r-' + k); q('r-' + k).classList.add('flash');
-        return espera(650);
-      }).then(function () { q('r-' + k).classList.remove('flash'); t2.remove(); });
+    // todo lo que ya se recorrió queda encendido
+    for (var i = 0; i < n; i++) {
+      var p = PASOS_FLUJO[i];
+      luz(p.n); p.e.forEach(function (e) { luz(e); });
+      if (p.er && i < n - 1) { luz('x-' + p.er[0]); luz('r-' + p.er[0], 'visto'); }
     }
-    tok.style.opacity = 1;
-    tok.style.transform = 'translate(' + X.ini + 'px,' + Y + 'px)';
-    nodo('n-ini'); decir('inicio', 'Llega POST /api/compras con el proveedor 1 y dos detalles');
-    var paso = espera(700)
-      .then(function () { luz('e-0'); return mover(tok, [[X.ini, Y], [X.d1, Y]], 700); })
-      .then(function () { nodo('n-d1'); return desvio(1, 'd1', 'Si falta un dato o la cantidad es 0: 400 y no se guarda nada'); })
-      .then(function () { decir('sí', 'Los datos son válidos'); luz('e-1'); return mover(tok, [[X.d1, Y], [X.d2, Y]], 700); })
-      .then(function () { nodo('n-d2'); return desvio(2, 'd2', 'Si el proveedor no existe: 404 · si su servicio está caído: 503'); })
-      .then(function () { decir('sí', 'Distribuidora Andina existe'); luz('e-2'); return mover(tok, [[X.d2, Y], [X.d3, Y]], 700); })
-      .then(function () { nodo('n-d3'); decir('detalle 1 / 2', 'Laptop Lenovo 14'); return desvio(3, 'd3', 'Si el producto no existe: 404'); })
-      .then(function () { luz('e-3'); return mover(tok, [[X.d3, Y], [X.d4, Y]], 700); })
-      .then(function () { nodo('n-d4'); return desvio(4, 'd4', 'Si el producto es de otro proveedor: 400'); })
-      .then(function () { if (!vivo()) return; luz('e-loop'); decir('detalle 2 / 2', 'Vuelve a verificar con el mouse inalámbrico'); return mover(tok, [[X.d4, Y], [X.d4, Y - 150], [X.d3, Y - 150], [X.d3, Y]], 900); })
-      .then(function () { if (!vivo()) return; nodo('n-d3'); return mover(tok, [[X.d3, Y], [X.d4, Y]], 800); })
-      .then(function () { if (!vivo()) return; nodo('n-d4'); luz('e-4'); decir('sí', 'Los dos productos pasan'); return mover(tok, [[X.d4, Y], [X.calc, Y]], 700); })
-      .then(function () { if (!vivo()) return; nodo('n-calc'); decir('cálculo', '2 × 2500.00 + 3 × 45.50 = 5136.50'); return espera(1100); })
-      .then(function () { if (!vivo()) return; luz('e-5'); return mover(tok, [[X.calc, Y], [X.fin, Y]], 700); })
-      .then(function () {
-        if (!vivo()) return;
-        nodo('n-fin'); tok.style.opacity = 0;
-        s.querySelectorAll('.nd,.ed,.er,.lb').forEach(function (e) { e.classList.add('lit'); });
-        s.querySelectorAll('.activo').forEach(function (e) { e.classList.remove('activo'); });
-        decir('201 created', 'Flujo completo: un camino correcto y cuatro desvíos de error');
+    var a = PASOS_FLUJO[n - 1];
+    q(a.n).classList.add('activo');
+    a.c.forEach(function (c) { s.querySelector('.capas [data-c="' + c + '"]').classList.add('on'); });
+    ok.querySelector('.tt').textContent = a.ok[0];
+    ok.querySelector('.cd').textContent = a.ok[1];
+    ok.classList.remove('entra2'); void ok.offsetWidth; ok.classList.add('entra2');
+    er.classList.remove('bien');
+    if (a.er) {
+      er.classList.add('activo');
+      s.querySelector('.capas [data-c="5"]').classList.add('on');
+      er.querySelector('.tt').textContent = a.er[1];
+      er.querySelector('.cd').textContent = a.er[2];
+      er.classList.remove('entra2'); void er.offsetWidth; er.classList.add('entra2');
+    } else {
+      er.classList.remove('activo');
+      er.classList.toggle('bien', !!a.fin);
+      er.querySelector('.tt').textContent = a.fin ? 'Ningún desvío: la compra se guardó' : 'Sin desvío en este paso';
+      er.querySelector('.cd').textContent = a.fin ? 'Si hubiera fallado cualquier paso,\nno se habría guardado nada.' : '—';
+    }
+    if (a.fin) s.querySelectorAll('.nd,.ed,.lb,.er').forEach(function (e) { e.classList.add('lit'); });
+
+    // movimiento del token desde el paso anterior
+    var desde = flujoPrev > 0 ? PASOS_FLUJO[flujoPrev - 1].n : a.n;
+    var x0 = FX[desde], x1 = FX[a.n];
+    var ruta = a.loop ? [[FX['n-d4'], FY], [FX['n-d4'], FY - 132], [FX['n-d3'], FY - 132], [FX['n-d3'], FY], [FX['n-d4'], FY]] : [[x0, FY], [x1, FY]];
+    var adelante = n === flujoPrev + 1;
+    flujoPrev = n;
+    tok.style.opacity = a.fin ? 0 : 1;
+    tok.getAnimations().forEach(function (x) { x.cancel(); });
+    if (!adelante || reducido) {
+      tok.style.transform = 'translate(' + x1 + 'px,' + FY + 'px)';
+      if (a.er) { luz('x-' + a.er[0]); luz('r-' + a.er[0], 'visto'); }
+      return;
+    }
+    var largo = 0;
+    for (var k = 1; k < ruta.length; k++) largo += Math.abs(ruta[k][0] - ruta[k - 1][0]) + Math.abs(ruta[k][1] - ruta[k - 1][1]);
+    var acc = 0;
+    var frames = ruta.map(function (pt, k) {
+      if (k) acc += Math.abs(pt[0] - ruta[k - 1][0]) + Math.abs(pt[1] - ruta[k - 1][1]);
+      return {transform: 'translate(' + pt[0] + 'px,' + pt[1] + 'px)', offset: largo ? acc / largo : 0};
+    });
+    var anim = tok.animate(frames, {duration: largo ? Math.min(1400, 300 + largo * 0.9) : 1, easing: 'cubic-bezier(.65,0,.35,1)', fill: 'forwards'});
+    if (a.er) {
+      anim.finished.then(function () {
+        if (!s.classList.contains('is-active') || flujoPrev !== n) return;
+        luz('x-' + a.er[0]);
+        var t2 = document.createElement('div');
+        t2.className = 'tok2'; s.appendChild(t2);
+        var xd = FX[a.n];
+        t2.animate([{transform: 'translate(' + xd + 'px,' + (FY + 74) + 'px)', opacity: 1}, {transform: 'translate(' + xd + 'px,' + (FYE - 48) + 'px)', opacity: 1}],
+                   {duration: 520, easing: 'cubic-bezier(.65,0,.35,1)', fill: 'forwards'}).finished.then(function () {
+          luz('r-' + a.er[0], 'visto'); q('r-' + a.er[0]).classList.add('flash');
+          t2.remove();
+          setTimeout(function () { var r = q('r-' + a.er[0]); if (r) r.classList.remove('flash'); }, 700);
+        });
       });
-    return paso;
+    }
   }
 
   function ganchos(s, n) {
