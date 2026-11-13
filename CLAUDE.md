@@ -144,6 +144,8 @@ Con las bases vacías, ejecutar las peticiones en orden; los ids dependen del or
 
 ## 6. Otros archivos del repositorio
 
+- `EXPOSICION.md`: las 35 peticiones de Postman con cuerpo, código esperado y comandos curl de respaldo; el guion de la exposición y las preguntas probables con sus respuestas.
+
 - `informe/`: informe entregado (Word y PDF).
 - `presentacion/Presentacion-Lab13-Renzo-Leon.html`: presentación en un solo archivo. Se abre en el navegador: → avanza, F pantalla completa, N notas, número + Enter salta.
 - `capturas/` y `diagramas/`: evidencias del informe.
