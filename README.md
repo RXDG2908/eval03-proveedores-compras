@@ -69,6 +69,7 @@ Antes de usar `prod` hay que ejecutar `script.sql`, porque ese perfil no crea ta
 - `capturas/`: respuestas de Postman, Eureka y las tablas en phpMyAdmin
 - `diagramas/`: arquitectura, flujo de una compra y tablas
 - `informe/`: informe en Word y PDF
+- `presentacion/Presentacion-Lab13-Renzo-Leon.html`: la presentación en un solo archivo, con fuentes incluidas; funciona sin internet en cualquier navegador.
 - `presentacion/`: presentación para la sustentación. Se abre `presentacion/index.html` en Chrome: → avanza, ← vuelve, F pantalla completa, N notas, T tiempo, número + Enter salta a una diapositiva
 
 ## Avance

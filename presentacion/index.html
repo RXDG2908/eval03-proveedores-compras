@@ -570,7 +570,7 @@ p{font-size:24px;line-height:1.4}
     <g class="nd " id="n-calc"><rect x="1420.0" y="388" width="200" height="84"/><text x="1520" y="425">Calcula</text><text class="s" x="1520" y="451">subtotal y total</text></g>
     <g class="nd fin" id="n-fin"><rect x="1683.0" y="388" width="144" height="84"/><text x="1755" y="425">201</text><text class="s" x="1755" y="451">Created</text></g>
     <g class="er" id="r-1"><rect x="338" y="568" width="224" height="88"/><text class="c" x="450" y="614">400</text><text x="450" y="642">Bad Request</text></g>
-    <g class="er" id="r-2"><rect x="608" y="568" width="224" height="88"/><text class="c" x="720" y="614">404 / 503</text><text x="720" y="642">Not Found · caído</text></g>
+    <g class="er" id="r-2"><rect x="608" y="568" width="224" height="88"/><text class="c" x="720" y="614" style="font-size:32px">404 / 503</text><text x="720" y="642">Not Found · caído</text></g>
     <g class="er" id="r-3"><rect x="878" y="568" width="224" height="88"/><text class="c" x="990" y="614">404</text><text x="990" y="642">Not Found</text></g>
     <g class="er" id="r-4"><rect x="1148" y="568" width="224" height="88"/><text class="c" x="1260" y="614">400</text><text x="1260" y="642">Bad Request</text></g>
   </svg>
@@ -975,8 +975,8 @@ p{font-size:24px;line-height:1.4}
           luz('r-' + a.er[0], 'visto'); q('r-' + a.er[0]).classList.add('flash');
           t2.remove();
           setTimeout(function () { var r = q('r-' + a.er[0]); if (r) r.classList.remove('flash'); }, 700);
-        });
-      });
+        }).catch(function () { t2.remove(); });
+      }).catch(function () {});
     }
   }
 
