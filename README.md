@@ -4,6 +4,8 @@ Evaluación 03 de Desarrollo de Aplicaciones Web, sección D. Estudiante: Renzo 
 
 Una empresa controla sus proveedores, productos y compras con tres microservicios. Cada uno tiene su puerto y su base de datos, y entre ellos solo se guardan ids. Todos se registran en Eureka, y se consultan entre sí con OpenFeign.
 
+> Preparar la demostración en un comando: [POSTMAN.md](POSTMAN.md) (`./demo.sh listo`)
+>
 > Demostración en Postman, guion y preguntas de la sustentación: [EXPOSICION.md](EXPOSICION.md)
 >
 > Guía completa de instalación (macOS y Windows), demostración en vivo y cambios rápidos: [CLAUDE.md](CLAUDE.md)

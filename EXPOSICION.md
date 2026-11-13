@@ -28,7 +28,7 @@ Todo lo necesario para **la demostración en Postman** y para **acompañar la ex
 | `compra` | http://localhost:8083 |
 
 - Para usar otro perfil (test 818x, prod 908x), cambiar los valores en la pestaña **Variables** de la colección.
-- Ejecutar **en orden**, de la 01 a la 35. También se puede usar **Run collection**: las 35 deben dar el código esperado.
+- Ejecutar **en orden**, de la 01 a la 35. Cada petición trae una prueba de su código; con **Run collection** las 35 deben salir en verde. Para preparar todo automáticamente, ver [POSTMAN.md](POSTMAN.md).
 
 ### Resumen de las 35 peticiones
 

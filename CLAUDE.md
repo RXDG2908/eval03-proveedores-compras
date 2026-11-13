@@ -1,5 +1,7 @@
 # Guía para Claude: Evaluación 03 · Laboratorio 13 (Proveedores y compras)
 
+> **Si te piden dejar todo listo para la demostración:** sigue [POSTMAN.md](POSTMAN.md). En resumen: instalar lo que falte, `./demo.sh listo` e importar la colección en Postman. El guion y las preguntas de la exposición están en [EXPOSICION.md](EXPOSICION.md).
+
 Proyecto de Renzo León Fernández (Desarrollo de Aplicaciones Web, Tecsup, 4 C24 sección D). Este archivo es para que Claude ayude a **instalar, ejecutar y demostrar en vivo** el proyecto, y a **hacer cambios pequeños** si el profesor los pide durante la sustentación.
 
 ## 1. Qué es el proyecto
@@ -143,6 +145,8 @@ Con las bases vacías, ejecutar las peticiones en orden; los ids dependen del or
 - **Cambiar un puerto:** editar `server.port` en `application-dev.yml`. Si es un servicio consultado por Feign no hace falta tocar nada más, porque Feign lo busca por nombre en Eureka.
 
 ## 6. Otros archivos del repositorio
+
+- `POSTMAN.md` y `demo.sh`: preparación de la demostración en un comando (`./demo.sh listo`), con pruebas automáticas de las 35 peticiones.
 
 - `EXPOSICION.md`: las 35 peticiones de Postman con cuerpo, código esperado y comandos curl de respaldo; el guion de la exposición y las preguntas probables con sus respuestas.
 
